@@ -1,0 +1,17 @@
+.img{
+  position:absolute;
+  z-index:1;
+}
+
+#container{
+    display:inline-block;
+    width:400px;
+    height:200px;
+    position:relative;
+}
+
+canvas{
+  border-right:1px solid #000000;
+  position:relative;
+  z-index:20;
+}
