@@ -1,0 +1,32 @@
+{
+	"idUser" : 4,
+	"pseudo" : "bob"
+	"likes" : [
+		{
+			"idMusique" :  3,
+			"date" : "12/01/2016",
+		},
+		{
+			"idMusique" :  7,
+			"date" : "18/11/2015",
+		},
+		{
+			"idMusique" :  89,
+			"date" : "12/01/2018",
+		}
+	]
+	"commentaires":[
+		{
+			"idPlage": 5,
+			"texte" : "trop bien xD ",
+			"date" : "27/06/2018"
+		}
+		{
+			"idPlage": 378,
+			"texte" : "chelou ",
+			"date" : "21/09/2013"
+		}
+	],
+	"hashPwd" : "htqfdblqedjqbdnlqdbjayzdjuabz",
+	"dateInscription" : "09/12/2008"
+}
