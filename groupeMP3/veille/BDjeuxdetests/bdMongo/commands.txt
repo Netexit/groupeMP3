@@ -1,0 +1,7 @@
+mongoimport -d mp3 -c user --file user.json
+
+mongoimport -d mp3 -c plage --file plage.json
+
+use mp3;
+
+db.user.find(); (=select * from user;)

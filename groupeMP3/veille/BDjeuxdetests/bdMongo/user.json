@@ -1,26 +1,26 @@
 {
 	"idUser" : 4,
-	"pseudo" : "bob"
+	"pseudo" : "bob",
 	"likes" : [
 		{
 			"idMusique" :  3,
-			"date" : "12/01/2016",
+			"date" : "12/01/2016"
 		},
 		{
 			"idMusique" :  7,
-			"date" : "18/11/2015",
+			"date" : "18/11/2015"
 		},
 		{
 			"idMusique" :  89,
-			"date" : "12/01/2018",
+			"date" : "12/01/2018"
 		}
-	]
+	],
 	"commentaires":[
 		{
 			"idPlage": 5,
 			"texte" : "trop bien xD ",
 			"date" : "27/06/2018"
-		}
+		},
 		{
 			"idPlage": 378,
 			"texte" : "chelou ",
