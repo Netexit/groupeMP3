@@ -1,0 +1,18 @@
+{
+	"idPlage" : 3,
+	"nomPLage" : "musique du turfu",
+	"duree" : 3000,
+	"idAlbum" :4,
+	"idArtistFeaturing" : [
+		{
+			"idArtist":5
+		}
+	],
+	"nbEcoute": 456,
+	"cheminFichierJSON" : "/home/bob/fichier3.json",
+	"idAuteur" :5,
+	"dateAjout" : "23/10/2017",
+	"cheminPochette" : "/home/Bob/album1/pouchette.jpg",
+	"cheminMP3" : "/home/bob/album/musique3.mp3",
+	"informationsSup" : "petite compo amusante"
+}
