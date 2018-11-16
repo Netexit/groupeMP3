@@ -1,0 +1,19 @@
+{
+	"idPlage" : 3,
+	"nomPLage" : "musique du turfu",
+	"duree" : 3000,
+	"nbLike" : 49,
+	"commentaires":
+	[
+		{"pseudo": "bob","texte" : "trop bien xD "},
+		{"pseudo": "issou","texte": "wesh wesh"}
+	],
+	"nbEcoute": 456,
+	"cheminFichierJSON" : "/home/bob/fichier3.json",
+	"idAuteur" :5,
+	"nomAuteur" : "Bob",
+	"dateAjout" : "23/10/2017",
+	"cheminPochette" : "/home/Bob/album1/pouchette.jpg",
+	"cheminMP3" : "/home/bob/album/musique3.mp3"
+}
+	
