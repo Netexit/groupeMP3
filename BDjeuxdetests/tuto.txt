@@ -1,0 +1,25 @@
+Tutoriel pour Mongo :
+
+installation windows : https://harry-wanki.developpez.com/tutoriels/mongodb/debuter-mongodb-introduction-base-donnees-nosql/
+
+importer le fichier de test :
+
+(dpuis le shell)
+
+-mongoimport -d mp3 -c plages --file mongojeudetest.json [en cas de liste d'objets : on ajoute le paramètre --jsonArray]
+
+pour se connecter : 
+-mongo
+
+afficher les bases de données :
+
+-show dbs
+
+se placer dans une base de donnée :
+
+-use mabasededonee
+
+afficher le contenu de la base :
+
+-db.macollection.find()
+
