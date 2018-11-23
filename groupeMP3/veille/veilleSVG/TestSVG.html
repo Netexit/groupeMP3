@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<link rel="stylesheet" type="text/css" href="testSVG.css">
+
+	</head>
+
+	<body>
+
+	<p class="SVG">
+
+	</p>
+
+	<p class="CANVAS">
+
+	</p>
+
+	<p class="DIV">
+
+	</p>
+
+	<script>
+		window.onload=function(){
+			createSVG();
+			createCanvas();
+			createDiv();
+			rectTab = document.querySelectorAll(".rect");
+		};
+		
+		var tabs = new Array();
+		for(i=0;i<75;i++){
+					tabs[i] = Math.floor(Math.random() * (255 - 0) + 0 );
+		}
+		
+		var rectTab = [];
+
+	//SVG
+		var createSVG = function(){
+			var pSVG = document.querySelector(".SVG");
+			var svg = document.createElementNS("http://www.w3.org/2000/svg", "svg");
+
+			var svgNS = svg.namespaceURI;
+			svg.classList.add("svg");
+
+			for (var i = 0; i<tabs.length; i++){
+				var rect = document.createElementNS(svgNS,'rect');
+				rect.setAttribute('x',12*(i+1));
+				rect.setAttribute('y',50 + (255 - tabs[i]));
+				rect.setAttribute('width',10);
+				rect.setAttribute('height', tabs[i]*2);
+				rect.setAttribute('class', 'rect');
+				rect.setAttribute('id', 'rect'+i);
+				rect.addEventListener("mouseover", function(e){
+					hoverTab(e.currentTarget);
+				});
+				rect.addEventListener("click", function(e){
+					clickTab(e.currentTarget);
+				});
+
+				svg.appendChild(rect);
+			}
+
+			pSVG.appendChild(svg);
+		}
+		
+		var clickTab = function(target){
+				rectTab.forEach(function(element) {
+					var rectId = parseInt(element.id.substr(4));
+					var targetId = parseInt(target.id.substr(4));
+
+					if (rectId <= targetId) {
+						if (!rectTab[rectId].classList.contains("clicked")) {
+							rectTab[rectId].classList.add("clicked");
+						}
+						if (rectTab[rectId].classList.contains("passed")) {
+							rectTab[rectId].classList.remove("passed");
+						}
+					}else {
+						if (rectTab[rectId].classList.contains("clicked")) {
+							rectTab[rectId].classList.remove("clicked");
+						}
+						if (rectTab[rectId].classList.contains("passed")) {
+							rectTab[rectId].classList.remove("passed");
+						}
+					}
+				});
+			};
+
+			var hoverTab = function(target){
+				rectTab.forEach(function(element) {
+					var rectId = parseInt(element.id.substr(4));
+					var targetId = parseInt(target.id.substr(4));
+
+					if (rectId == targetId) {
+						rectTab[rectId].setAttribute('stroke', 'black');
+						rectTab[rectId].setAttribute('stroke-width', '2');
+					}else{
+						rectTab[rectId].removeAttribute('stroke');
+					}
+
+					if (rectId <= targetId) {
+						if (!rectTab[rectId].classList.contains("clicked")) {
+							rectTab[rectId].classList.add("passed");
+						}else {
+							// rectTab[rectId].classList.remove("passed");
+						}
+					}else {
+						if (!rectTab[rectId].classList.contains("clicked")) {
+							if (rectTab[rectId].classList.contains("passed")) {
+								rectTab[rectId].classList.remove("passed");
+							}
+						}else{
+							// rectTab[rectId].classList.add("passed");
+						}
+					}
+				});
+			};
+
+
+	//DIV
+	//Positionnement en Absolute
+	//donc difficile a utiliser,
+	//casiement même fonctionement que le SVG
+		var createDiv = function(){
+			var pDIV = document.querySelector(".DIV");
+			pDIV.classList.add("divClass");
+
+			for (var i = 0; i<tabs.length; i++){
+				var div = document.createElement("div");
+				div.style.position = "absolute";
+				div.style.left = 12*(i+1)+'px';
+				div.style.top = 50 + (255 - tabs[i])+'px';
+				div.style.height = (tabs[i]*2) + "px";
+				div.setAttribute('class', 'div');
+				div.setAttribute('id', 'div'+i);
+				div.addEventListener("mouseover", function(e){
+					// hoverTab(e.currentTarget);
+				});
+				div.addEventListener("click", function(e){
+					// clickTab(e.currentTarget);
+				});
+
+				pDIV.appendChild(div);
+			}
+
+		}
+
+
+	//CANVAS
+	//Pixel donc on ne peut pas appliquer d'effect css dessu ()hove, focus,...)
+	//Une fois dessiner on ne peut plus obtenir les éléments
+		var createCanvas = function(){
+			var pCANVAS = document.querySelector(".CANVAS");
+			pCANVAS.setAttribute("style", "background: #e0cdc5")
+
+			var canvas = document.createElement("canvas");
+			canvas.setAttribute('width', '1000');
+			canvas.setAttribute('height', '610');
+			canvas.setAttribute('class', 'canvas');
+
+			var ctx = canvas.getContext('2d');
+
+			for (var i = 0; i<tabs.length; i++){
+				ctx.fillStyle="#ffae19";
+				ctx.fillRect(12*(i+1), 50 + (255 - tabs[i]), 10, tabs[i]*2);
+			}
+			pCANVAS.appendChild(canvas);
+		}
+		
+	</script>
+
+	</body>
+</html>
