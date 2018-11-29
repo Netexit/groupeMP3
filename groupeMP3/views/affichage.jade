@@ -1,0 +1,83 @@
+doctype html
+html
+  head
+    title="Affichage"
+  body
+    button(onclick="findAll()") Call findAll
+    div(id="divFindAll")
+    br
+    input(id="inputFindById")
+    button(onclick="findById()") Call findById
+    div(id="divFindById")
+    br
+    form(method='POST' action="/plages")
+      div.form-group
+        label(for='idPlage') Id Plage :
+        input#idPlage.form-control(type='number', name='idPlage')
+      br
+
+      div.form-group
+        label(for='nomPLage') Nom Plage :
+        input#nomPLage.form-control(type='text', name='nomPLage')
+      br
+        
+      div.form-group
+        label(for='duree') Duree Plage :
+        input#duree.form-control(type='number', name='duree')
+      br
+        
+      div.form-group
+        label(for='idAlbum') Id Album :
+        input#idAlbum.form-control(type='number', name='idAlbum')
+      br
+        
+      div.form-group
+        label(for='idArtistFeaturing') Id Artist Featuring :
+        input#idArtistFeaturing.form-control(type='number' name='idArtistFeaturing')
+      br
+        
+      div.form-group
+        label(for='nbEcoute') Nombre d'écoutes :
+        input#nbEcoute.form-control(type='number' name='nbEcoute')
+      br
+        
+      div.form-group
+        label(for='cheminFichierJSON') Chemin Fichier JSON :
+        input#cheminFichierJSON.form-control(type='text' name='cheminFichierJSON')
+      br
+        
+      div.form-group
+        label(for='idAuteur') Id Auteur :
+        input#idAuteur.form-control(type='number' name='idAuteur')
+      br
+        
+      div.form-group
+        label(for='dateAjout') Date Ajout :
+        input#dateAjout.form-control(type='text' name='dateAjout')
+      br
+        
+      div.form-group
+        label(for='cheminPochette') Chemin Pochette Album :
+        input#cheminPochette.form-control(type='text' name='cheminPochette')
+      br
+        
+      div.form-group
+        label(for='cheminMP3') Chemin MP3 :
+        input#cheminMP3.form-control(type='text' name='cheminMP3')
+      br
+        
+      div.form-group
+        label(for='informationsSup') Informations supplémentaires :
+        input#informationsSup.form-control(type='text' name='informationsSup')
+      br
+
+      button.btn.btn-primary(type='submit') Submit
+      br
+    
+    input(id="inputDeletePlage")
+    br
+    button(onclick="deletePlage()") Delete Plage
+    
+    button(onclick="updatePlage()") Update Plage
+
+    script(src='/javascripts/testApi.js')
