@@ -1,0 +1,37 @@
+<body>
+	<p id="text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla id condimentum quam, quis ultrices ex. In dignissim convallis dapibus. Nunc eleifend rhoncus rhoncus. Ut vehicula auctor pellentesque. Vestibulum metus quam, posuere ut metus et, consectetur eleifend diam. Proin euismod id arcu ac fringilla. Donec et sapien semper, consectetur velit quis, iaculis velit. Phasellus tempor nibh a dolor condimentum, eu commodo risus tincidunt. Nulla auctor, tortor nec iaculis pharetra, metus metus lacinia sem, et porta tortor urna sed diam. Curabitur venenatis pharetra libero, quis pharetra lacus elementum eu. In semper erat ac neque efficitur feugiat. Pellentesque vitae risus et ex tristique auctor vitae sed nisi. Quisque vel gravida felis. </p>
+</body>
+<script>
+	var margeX = 1;
+	var margeY = 1;
+	var reduc = 18;
+	var x= document.documentElement.getElementsByTagName('body')[0].clientWidth;
+	
+	var y= document.documentElement.getElementsByTagName('body')[0].clientHeight;
+	document.getElementById('text').style.fontSize = getMin(x,y)/reduc+"px";
+window.onresize = function(event) {
+	
+	var w = window;
+    var tmp = document.documentElement.getElementsByTagName('body')[0];
+    var tmpX = tmp.clientWidth;
+    var tmpY = tmp.clientHeight;
+    //console.log(x,y,tmpX,tmpY);
+    if( (Math.abs(tmpX - x) > margeX) || (Math.abs(tmpY-y)> margeY)){
+		x = tmpX;
+		y = tmpY;
+		document.getElementById('text').style.fontSize = getMin(x,y)/reduc+"px";
+		//alert(x + ' et ' + y);
+		
+	}
+	classe = 1;
+};
+
+function getMin(a,b){
+	if( a > b){
+		return b;
+	}else{
+		return a;
+	}
+}
+</script>
+

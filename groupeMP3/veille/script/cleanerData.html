@@ -14,7 +14,22 @@ function clean(tab){
 	});	
 	return tab;
 }
+function toScale(tab){
+	
+	var max = 0;
+	for(i=0; i < tab.data.length; i = i +1){
+		if(tab.data[i] > max){
+			max = tab.data[i];
+		}
+	}
+	var coef = 255/max;
+	for(i=0; i < tab.data.length; i = i +1){
+		tab.data[i] = Math.round(tab.data[i] * coef);
+	}
+	return tab;
+}
+json = toScale(clean(json));
+console.log(json);
 
-clean(json);
 </script>
 
