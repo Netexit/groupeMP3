@@ -1,32 +1,203 @@
 {
-	"idUser" : 4,
-	"pseudo" : "bob",
+	"idUser" : 1,
+	"pseudo" : "bob marley",
 	"likes" : [
 		{
-			"idMusique" :  3,
-			"date" : "12/01/2016"
+			"idPLage" :  2,
+			"date" : "12/01/2018"
 		},
 		{
-			"idMusique" :  7,
-			"date" : "18/11/2015"
-		},
-		{
-			"idMusique" :  89,
+			"idPLage" :  4,
 			"date" : "12/01/2018"
 		}
 	],
 	"commentaires":[
 		{
-			"idPlage": 5,
+			"idPlage": 8,
 			"texte" : "trop bien xD ",
 			"date" : "27/06/2018"
 		},
 		{
-			"idPlage": 378,
+			"idPlage": 3,
 			"texte" : "chelou ",
 			"date" : "21/09/2013"
 		}
 	],
-	"hashPwd" : "htqfdblqedjqbdnlqdbjayzdjuabz",
+	"hashPassword" : "ouhadbuyjvazdiçzayd_è-64E67",
 	"dateInscription" : "09/12/2008"
+}
+{
+	"idUser" : 2,
+	"pseudo" : "Vladimir cauchemard",
+	"likes" : [
+		{
+			"idPLage" :  8,
+			"date" : "12/02/2018"
+		}
+	],
+	"commentaires":[],
+	"hashPassword" : "qpjefkpoqkmsdvabepopez a",
+	"dateInscription" : "19/07/2002"
+}
+{
+	"idUser" : 3,
+	"pseudo" : "Hilight tribe",
+	"likes" : [
+		{
+			"idMusique" :  1,
+			"date" : "10/10/2006"
+		}
+	],
+	"commentaires":[
+		{
+			"idPlage": 9,
+			"texte" : "amuzzzing",
+			"date" : "14/01/2017"
+		}
+	],
+	"hashPassword" : "kacsuvtahcegqkeyuqh veckqbtcyjqhscy-qs cvyhtxcvj",
+	"dateInscription" : "03/10/20012"
+}
+{
+	"idUser" : 4,
+	"pseudo" : "kirikou",
+	"likes" : [
+		{
+			"idMusique" :  12,
+			"date" : "22/04/2014"
+		}
+	],
+	"commentaires":[
+		{
+			"idPlage": 5,
+			"texte" : "issou ",
+			"date" : "12/03/2017"
+		}
+	],
+	"hashPassword" : "pkbilnkbhjvcgxoihuht",
+	"dateInscription" : "18/11/2012"
+}
+{
+	"idUser" : 5,
+	"pseudo" : "Céline dion",
+	"likes" : [
+		{
+			"idPlage" :  4,
+			"date" : "01/11/2018"
+		}
+	],
+	"commentaires":[
+		{
+			"idPlage": 7,
+			"texte" : "commentaire d'une triso",
+			"date" : "24/12/2015"
+		},
+	],
+	"hashPassword" : "kugakazyvjjbhdscsjdyuqhvsxqsxsv",
+	"dateInscription" : "28/08/2014"
+}
+{
+	"idUser" : 6,
+	"pseudo" : "izzou",
+	"likes" : [
+		{
+			"idPlage" :  4,
+			"date" : "16/06/2018"
+		}
+	],
+	"commentaires":[
+		{
+			"idPlage": 2,
+			"texte" : "la chancla!",
+			"date" : "16/05/2014"
+		},
+	],
+	"hashPassword" : "jgfdserthjkpoiugszerghjç_yfdefghui",
+	"dateInscription" : "23/11/2012"
+}
+{
+	"idUser" : 7,
+	"pseudo" : "Vald",
+	"likes" : [
+		{
+			"idPlage" :  6,
+			"date" : "16/11/2018"
+		}
+	],
+	"commentaires":[
+		{
+			"idPlage": 3,
+			"texte" : "bonjour, j'aime pas ta maman",
+			"date" : "08/11/2017"
+		},
+	],
+	"hashPassword" : "zsdfbnkoiuygcszefghjuytf",
+	"dateInscription" : "19/11/2018"
+}
+{
+	"idUser" : 8,
+	"pseudo" : "Iron maidon",
+	"likes" : [
+		{
+			"idPLage" :  7,
+			"date" : "08/04/2015"
+		}
+	],
+	"commentaires":[
+		{
+			"idPlage": 3,
+			"texte" : "ayaaaaa",
+			"date" : "24/03/2012"
+		}
+	],
+	"hashPassword" : "azsdfvbgtyhn,koooooooook,nhtfcxwq",
+	"dateInscription" : "19/07/2000"
+}
+{
+	"idUser" : 9,
+	"pseudo" : "CanLeBavard",
+	"likes" : [
+		{
+			"idPlage" :  4,
+			"date" : "11/11/2017"
+		}
+	],
+	"commentaires":[
+		{
+			"idPlage": 5,
+			"texte" : "mysoundpoint je t'ais dis il doit y avoir une méthode...path to some mp3 url ha dinc url éguae ca hop ici je vais mettre url egualele a url ",
+			"date" : "29/11/2018"
+		},
+		{
+			"idPlage": 378,
+			"texte" : "url and sound loaded et la on va mettre my snd.play tack tack toujours des errzeurs je sais pas pourqoi, est ce que les logs on...",
+			"date" : "29/11/2018"
+		}
+	],
+	"hashPassword" : "qsdfghiuytrsdfghjouyt",
+	"dateInscription" : "09/12/2008"
+}
+{
+	"idUser" : 10,
+	"pseudo" : "Alex&co",
+	"likes" : [
+		{
+			"idPlage" :  8,
+			"date" : "19/08/2017"
+		}
+	],
+	"commentaires":[
+		{
+			"idPlage": 5,
+			"texte" : "augduazdbkazdyazdb",
+			"date" : "27/06/2014"
+		},
+		{
+			"idPlage": 378,
+			"texte" : "kuabdkuazjqjbu",
+			"date" : "21/09/2019"
+		}
+	],
+	"hashPassword" : "zbraaalqmnaeqgdaizldabed",
+	"dateInscription" : "09/12/2000"
 }
