@@ -33,7 +33,7 @@ function IntervalTimer(callback, interval) {
 
   this.timeoutCallback = function(){
     remaining=0;
-    remainingTime
+    remainingTime=0;
     timeoutId=0;
     callback();
     startTime = new Date();
