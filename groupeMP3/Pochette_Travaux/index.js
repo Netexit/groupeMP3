@@ -1,13 +1,13 @@
 // La fonction qui permet de nettoyer les valeurs négatives des hauteurs d'un objet JSON
 function clean(tab){
-	var tab = Array.from(tab)
-	for(i=3; i< tab.length ; i= i+4){
+	var arrayTab = Array.from(tab)
+	for(i=3; i< arrayTab.length ; i= i+4){
 		tab[i] = 0;
 	}
-	tab = tab.filter(function (el) {
+	arrayTabFilter = tab.filter(function (el) {
 		return el != null;
 	});	
-	return tab;
+	return arrayTabFilter;
 }
 
 function getPixelsTab(array){
