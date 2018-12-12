@@ -36,8 +36,9 @@ exports.findById = function(req, res) {
     //collection.findOne({'_id':new BSON.ObjectID(id)}, function(err, item) {
     //  res.send(item);
     //});
-    var query = {idPlage:parseInt(id)};
+    var query = {idPlage:id};
     collection.find(query).toArray(function(err, item) {
+      console.log(item);
       res.send(item);
     });
   });
@@ -63,7 +64,7 @@ exports.deletePlage = function(req, res) {
   var id = req.params.id;
   console.log('Deleting plage: ' + id);
   database.collection('plage', function(err, collection) {
-    var query = {idPlage:parseInt(id)};
+    var query = {idPlage:id};
     collection.deleteOne(query, {safe:true}, function(err, result) {
       if (err) {
         res.send({'error':'An error has occurred - ' + err});
@@ -75,20 +76,28 @@ exports.deletePlage = function(req, res) {
   });
 }
 
-/**exports.updatePlage = function(req, res){
+exports.updatePlage = function(req, res){
   var id = req.params.id;
-  var wine = req.body;
+  var plage = req.body;
   console.log('Updating plage: ' + id);
   database.collection('plage', function(err, collection) {
-    var query = {idPlage:parseInt(id)};
-    collection.update(query, plage, {safe:true}, function(err, result) {
+    var query = {idPlage:id};
+    collection.updateOne(query, {$set : plage,$currentDate:{lastModified:true}}, {safe:true}, function(err, result) {
       if (err) {
         console.log('Error updating plage: ' + err);
         res.send({'error':'An error has occurred'});
       } else {
         console.log('' + result + ' document(s) updated');
-        res.send(wine);
+        res.send(plage);
       }
     });
   });
-}*/
+}
+
+exports.countPlages = function(req, res){
+  database.collection('plage', function(err, collection){
+    collection.countDocuments(function(err, count) {
+      res.send({count : count});
+    })
+  });
+}

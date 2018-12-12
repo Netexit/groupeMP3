@@ -1,0 +1,9 @@
+doctype html
+html
+  head
+    title="Upload"
+  body
+    form(method='POST', action="/upload/formulaireAjout", enctype='multipart/form-data')
+      input(type='file', id='file', name='mp3') 
+      Upload MP3
+      button.btn.btn-primary(type='submit') Upload

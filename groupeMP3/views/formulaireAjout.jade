@@ -1,0 +1,37 @@
+doctype html
+html
+  head
+    title="Formulaire Ajout"
+  body
+    div.form-group
+      label(for='nomPlage') Nom Plage :
+      input#nomPlage.form-control(type='text', name='nomPlage' value="#{title}")
+    br
+      
+    div.form-group
+      label(for='nomArtiste') Nom Artiste :
+      input#nomArtiste.form-control(type='text' name='nomArtiste' value="#{artist}")  
+    br
+      
+    div.form-group
+      label(for='nomAlbum') Nom Album :
+      input#nomAlbum.form-control(type='text', name='nomAlbum')
+    br
+        
+    div.form-group
+      label(for='featArtiste') Feat :
+      input#featArtiste.form-control(type='text' name='featArtiste')
+    br
+        
+    br
+    img.image(src="#{name}.jpg" width=150 height=150)
+    br
+    br
+    button.btn.btn-primary(onclick="createPlage()") Valider
+    br
+    
+    script.
+      artist="#{artist}"
+      console.log(artist);
+      duration="#{duration}";
+    script(src='/javascripts/ajout.js')

@@ -1,3 +1,5 @@
+var inputFile = document.getElementById("file");
+
 function findAll(){
   var url = "http://localhost:3000/plages";
   var xhr = new XMLHttpRequest();
@@ -52,7 +54,7 @@ function updatePlage(){
   var url = "http://localhost:3000/plages/"+document.getElementById("idPlage").value;
   var xhr = new XMLHttpRequest();
   var formData = new FormData();
-  formData.append("nom",document.getElementById("nomPLage").value);
+  formData.append("nomPlage",document.getElementById("nomPlage").value);
   xhr.open('PUT',url,true);
   xhr.send(formData);
   xhr.onload = function(){
