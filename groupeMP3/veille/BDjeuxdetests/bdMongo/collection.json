@@ -1,0 +1,214 @@
+{
+	"nomArtiste" : "bob marley",
+	"hashPassword" : "ouhadbuyjvazdiçzayd_è-64E67",
+	"dateInscription" : "09/12/2008",
+	"musique" : [
+		{
+			"nomPlage" : "musique du turfu",
+			"duree" : 3000,
+			"nomAlbum" :"bufalo cover",
+			"nbEcoutes": 456,
+			"nbLike" : 3836,
+			"dataJSON" : "/home/json/fichier1.json",
+			"dateAjout" : "23/11/2017",
+			"cheminPochette" : "/home/cover/cover1.jpg",
+			"cheminMP3" : "/home/bob/album/musique1.mp3",
+			"commentaire":[
+				{
+					"user" : "bernadette crachi",
+					"texte" : "trop bien xD ",
+					"date" : "27/06/2018"
+				},
+				{
+					"user" : "izzou",
+					"texte" : "chelou ",
+					"date" : "21/09/2013"
+				}
+			]
+		}
+	]
+}
+
+
+{
+	"nomArtiste" : "Vladimir cauchemard",
+	"hashPassword" : "qpjefkpoqkmsdvabepopez a",
+	"dateInscription" : "19/07/2002",
+	"musique" : [
+		{
+			"nomPlage" : "presque pas accordé",
+			"duree" : 2546,
+			"nomAlbum" :"album de corde",
+			"nbEcoutes": 289,
+			"nbLike" : 180,
+			"dataJSON" : "/home/json/fichier2.json",
+			"dateAjout" : "23/10/2017",
+			"cheminPochette" : "/home/cover/cover2.jpg",
+			"cheminMP3" : "/home/music/musique2.mp3",
+			"informationsSup" : "best of my music",
+			"commentaire" : [
+				{
+					"user": "Vladimir cauchemard",
+					"texte" : "chui égoïste",
+					"date" : "27/06/2014"
+				},
+				{
+					"user": "Lilou",
+					"texte" : "kuabdkuazjqjbu",
+					"date" : "21/09/2019"
+				}
+			]
+		}
+	]
+}
+
+
+
+
+{
+	"nomArtiste" : "Hilight tribe",
+	"hashPassword" : "kacsuvtahcegqkeyuqheckqbtcyjqhscy-qs cvyhtxcvj",
+	"dateInscription" : "03/10/20012",
+	"musique" : [
+		{
+			"nomPlage" : "chui dans le issouk",
+			"duree" : 3426,
+			"nomAlbum" :"yatagnaki",
+			"nbEcoutes": 2123,
+			"nbLike" : 154000,
+			"dataJSON" : "/home/json/fichier3.json",
+			"dateAjout" : "16/07/2012",
+			"cheminPochette" : "/home/cover/cover3.jpg",
+			"cheminMP3" : "/home/music/musique3.mp3",
+			"commentaire":[
+				{
+					"user": "maxime du 56",
+					"texte" : "amuzzzing",
+					"date" : "14/01/2017"
+				},
+				{
+					"user": "el Bavard",
+					"texte" : "mysoundpoint je t'ais dis il doit y avoir une méthode...path to some mp3 url ha dinc url éguae ca hop ici je vais mettre url egualele a url ",
+					"date" : "29/11/2018"
+				}
+			]
+		}
+	]
+}
+
+{
+	"nomArtiste" : "kirikou",
+	"hashPassword" : "pkbilnkbhjvcgxoihuht",
+	"dateInscription" : "18/11/2012",
+	"musique" : [
+		{
+			"nomPlage" : "la vie",
+			"duree" : 546,
+			"nomAlbum" :"album petit",
+			"nbEcoutes": 290,
+			"dataJSON" : "/home/json/fichier4.json",
+			"dateAjout" : "16/07/2018",
+			"cheminPochette" : "/home/cover/cover4.jpg",
+			"cheminMP3" : "/home/music/musique4.mp3",
+			"commentaire":[
+				{
+					"user": "Laurent Oultant",
+					"texte" : "issou ",
+					"date" : "12/03/2017"
+				},
+				{
+					"user": "Paul",
+					"texte" : "ayaaaaa",
+					"date" : "24/03/2012"
+				}
+			]
+		}
+	]
+}
+
+
+{
+	"nomArtiste" : "Céline dion",
+	"hashPassword" : "kugakazyvjjbhdscsjdyuqhvsxqsxsv",
+	"dateInscription" : "28/08/2014",
+	"musique" : [
+		{
+			"nomPlage" : "zbeub zbeub",
+			"duree" : 437,
+			"nomAlbum" :"le grand poil",
+			"nbEcoutes": 233,
+			"nbLike" : 78989,
+			"dataJSON" : "/home/json/fichier6.json",
+			"dateAjout" : "23/10/2011",
+			"cheminPochette" : "/home/cover/cover6.jpg",
+			"cheminMP3" : "/home/music/musique6.mp3",
+			"commentaire":[
+				{
+					"user": "marc la frap",
+					"texte" : "commentaire d'une triso",
+					"date" : "24/12/2015"
+				},
+				{
+					"user": "jean mich",
+					"texte" : "url and sound loaded et la on va mettre my snd.play tack tack toujours des errzeurs je sais pas pourqoi, est ce que les logs on...",
+					"date" : "29/11/2018"
+				}
+			]
+		}
+	]
+}
+
+
+{
+	"nomArtiste" : "izzou",
+	"hashPassword" : "jgfdserthjkpoiugszerghjç_yfdefghui",
+	"dateInscription" : "23/11/2012",
+	"musique" : [
+		{
+			"nomPlage" : "musique ancienne",
+			"duree" : 6775,
+			"nomAlbum" :"La chancla y el banador",
+			"nbEcoutes": 2638,
+			"nbLike" : "1739",
+			"dataJSON" : "/home/json/fichier7.json",
+			"dateAjout" : "12/03/2017",
+			"cheminPochette" : "/home/cover/cover7.jpg",
+			"cheminMP3" : "/home/music/musique7.mp3",
+			"commentaire":[
+				{
+					"user": "bertrand de la ponte de saint magilain",
+					"texte" : "la chancla!",
+					"date" : "16/05/2014"
+				},
+				{
+					"user": "V.A.L.D",
+					"texte" : "bonjour, j'aime pas ta maman",
+					"date" : "08/11/2017"
+				}
+			]
+
+		}
+	]
+}
+
+
+{
+	"nomArtiste" : "Vald",
+	"hashPassword" : "zsdfbnkoiuygcszefghjuytf",
+	"dateInscription" : "19/11/2018"
+}
+{
+	"nomArtiste" : "Iron maidon",
+	"hashPassword" : "azsdfvbgtyhn,koooooooook,nhtfcxwq",
+	"dateInscription" : "19/07/2000"
+}
+{
+	"nomArtiste" : "CanLeBavard",
+	"hashPassword" : "qsdfghiuytrsdfghjouyt",
+	"dateInscription" : "09/12/2008"
+}
+{
+	"nomArtiste" : "Alex&co",
+	"hashPassword" : "zbraaalqmnaeqgdaizldabed",
+	"dateInscription" : "09/12/2000"
+}

@@ -23,10 +23,17 @@ router.post('/formulaireAjout', function(req, res, next){
       }
       mm.parseFile(appRoot+"/files"+name+".mp3", {native: true})
       .then( metadata => {
+<<<<<<< HEAD
         console.log(util.inspect(metadata, {showHidden: false, depth: null}));
         //shelljs.exec("bash "+appRoot+"/files/scripts/art.sh "+name);
         shelljs.exec("bash "+appRoot+"/files/scripts/test.sh "+name);
         res.render('formulaireAjout',{artist:metadata.common.artist,title:metadata.common.title,name:name});
+=======
+        console.log(util.inspect(metadata, { showHidden: false, depth: null }));
+        shelljs.exec("bash "+appRoot+"/files/scripts/art.sh "+name);
+        //shelljs.exec("bash "+appRoot+"/files/scripts/test.sh "+name);
+        res.render('formulaireAjout',{duration:metadata.format.duration,artist:metadata.common.artist,title:metadata.common.title,name:name});
+>>>>>>> 9279d866731a2f425afb997a34541e4ab69aadb8
       })
       .catch( err => {
         console.error(err.message);
