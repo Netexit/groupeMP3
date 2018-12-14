@@ -11,7 +11,7 @@ function createPlage(){
       var id = JSON.parse(xhr.response).count+1;
       url = "http://localhost:3000/plages/";
       var xhr2 = new XMLHttpRequest();
-      formDate.append("id",id);
+      formData.append("id",id);
       formData.append("nomPlage",document.getElementById("nomPlage").value);
       formData.append("duree",duration);
 

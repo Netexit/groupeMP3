@@ -1,4 +1,6 @@
 var mongo = require('mongodb');
+var mm = require('music-metadata');
+var fs = require('fs');
 
 var Server = mongo.Server,
     Db = mongo.Db,
@@ -45,19 +47,57 @@ exports.findById = function(req, res) {
 };
 
 
+//traitement de l'ajout
+//nomPlage
+//nomArtiste
+//nomAlbum
+//featArtiste
+//duree
+//nbEcoutes
+//dateAjout
+//dataJSON
+//2chemins
+
 exports.addPlage = function(req, res) {
-  var plage = req.body;
-  console.log('Adding plage: ' + JSON.stringify(plage));
-  database.collection('plage', function(err, collection) {
-    collection.insertOne(plage, {safe:true}, function(err, result) {
-      if (err) {
-        res.send({'error':'An error has occurred'});
-      } else {
-        console.log('Success: ' + JSON.stringify(result[0]));
-        res.send(result[0]);
-      }
+  // console.log('Adding plage: ' + JSON.stringify(plage));
+  var path=req.body.name;
+  var name=path.substring(5);
+
+  if(fs.existsSync(appRoot+"/files"+path+".mp3")){
+    mm.parseFile(appRoot+"/files"+path+".mp3", {native: true})
+    .then( metadata => {
+      var content = fs.readFileSync(appRoot+"/files/tmp/vald.json"); // A MODIFIER
+      var plage={
+        "nomPlage" : req.body.nomPlage,
+        "nomArtiste" : req.body.nomArtiste,
+        "nomAlbum" : req.body.nomAlbum,
+        "featArtiste" : req.body.featArtiste,
+        "duree" : metadata.format.duration,
+        "nbEcoutes" : 0,
+        "dateAjout" : new Date(),
+        "dataJSON" : JSON.parse(""+content).data,
+        "cheminMP3" : appRoot+"/files/mp3/"+name+".mp3",
+        "cheminPochette" : appRoot+"/files/art/"+name+".jpg"
+      };
+      database.collection('plage', function(err, collection) {
+        collection.insertOne(plage, {safe:true}, function(err, result) {
+          if (err) {
+            res.send({'error':'An error has occurred'});
+          } else {
+            res.send("Success!");
+          }
+        });
+      });
+
+    })
+    .catch( err => {
+      console.error(err.message);
     });
-  });
+  }
+  else{
+    res.send("Valeur incorrecte dans le formulaire");
+  }
+
 }
 
 exports.deletePlage = function(req, res) {
