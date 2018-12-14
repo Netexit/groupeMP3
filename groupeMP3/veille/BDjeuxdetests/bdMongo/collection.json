@@ -1,18 +1,18 @@
 {
-	"pseudo" : "bob marley",
+	"nomArtiste" : "bob marley",
 	"hashPassword" : "ouhadbuyjvazdiçzayd_è-64E67",
 	"dateInscription" : "09/12/2008",
 	"musique" : [
 		{
-			"nomPLage" : "musique du turfu",
+			"nomPlage" : "musique du turfu",
 			"duree" : 3000,
 			"nomAlbum" :"bufalo cover",
-			"nbListenning": 456,
+			"nbEcoutes": 456,
 			"nbLike" : 3836,
-			"musicFileJSON" : "/home/json/fichier1.json",
-			"dateAdd" : "23/11/2017",
-			"pathCover" : "/home/cover/cover1.jpg",
-			"pathMP3" : "/home/bob/album/musique1.mp3",
+			"dataJSON" : "/home/json/fichier1.json",
+			"dateAjout" : "23/11/2017",
+			"cheminPochette" : "/home/cover/cover1.jpg",
+			"cheminMP3" : "/home/bob/album/musique1.mp3",
 			"commentaire":[
 				{
 					"user" : "bernadette crachi",
@@ -31,20 +31,20 @@
 
 
 {
-	"pseudo" : "Vladimir cauchemard",
+	"nomArtiste" : "Vladimir cauchemard",
 	"hashPassword" : "qpjefkpoqkmsdvabepopez a",
 	"dateInscription" : "19/07/2002",
 	"musique" : [
 		{
-			"nomPLage" : "presque pas accordé",
+			"nomPlage" : "presque pas accordé",
 			"duree" : 2546,
 			"nomAlbum" :"album de corde",
-			"nbListenning": 289,
+			"nbEcoutes": 289,
 			"nbLike" : 180,
-			"musicFileJSON" : "/home/json/fichier2.json",
-			"dateAdd" : "23/10/2017",
-			"pathCover" : "/home/cover/cover2.jpg",
-			"pathMP3" : "/home/music/musique2.mp3",
+			"dataJSON" : "/home/json/fichier2.json",
+			"dateAjout" : "23/10/2017",
+			"cheminPochette" : "/home/cover/cover2.jpg",
+			"cheminMP3" : "/home/music/musique2.mp3",
 			"informationsSup" : "best of my music",
 			"commentaire" : [
 				{
@@ -66,20 +66,20 @@
 
 
 {
-	"pseudo" : "Hilight tribe",
+	"nomArtiste" : "Hilight tribe",
 	"hashPassword" : "kacsuvtahcegqkeyuqheckqbtcyjqhscy-qs cvyhtxcvj",
 	"dateInscription" : "03/10/20012",
 	"musique" : [
 		{
-			"nomPLage" : "chui dans le issouk",
+			"nomPlage" : "chui dans le issouk",
 			"duree" : 3426,
 			"nomAlbum" :"yatagnaki",
-			"nbListenning": 2123,
+			"nbEcoutes": 2123,
 			"nbLike" : 154000,
-			"musicFileJSON" : "/home/json/fichier3.json",
-			"dateAdd" : "16/07/2012",
-			"pathCover" : "/home/cover/cover3.jpg",
-			"pathMP3" : "/home/music/musique3.mp3",
+			"dataJSON" : "/home/json/fichier3.json",
+			"dateAjout" : "16/07/2012",
+			"cheminPochette" : "/home/cover/cover3.jpg",
+			"cheminMP3" : "/home/music/musique3.mp3",
 			"commentaire":[
 				{
 					"user": "maxime du 56",
@@ -97,19 +97,19 @@
 }
 
 {
-	"pseudo" : "kirikou",
+	"nomArtiste" : "kirikou",
 	"hashPassword" : "pkbilnkbhjvcgxoihuht",
 	"dateInscription" : "18/11/2012",
 	"musique" : [
 		{
-			"nomPLage" : "la vie",
+			"nomPlage" : "la vie",
 			"duree" : 546,
 			"nomAlbum" :"album petit",
-			"nbListenning": 290,
-			"musicFileJSON" : "/home/json/fichier4.json",
-			"dateAdd" : "16/07/2018",
-			"pathCover" : "/home/cover/cover4.jpg",
-			"pathMP3" : "/home/music/musique4.mp3",
+			"nbEcoutes": 290,
+			"dataJSON" : "/home/json/fichier4.json",
+			"dateAjout" : "16/07/2018",
+			"cheminPochette" : "/home/cover/cover4.jpg",
+			"cheminMP3" : "/home/music/musique4.mp3",
 			"commentaire":[
 				{
 					"user": "Laurent Oultant",
@@ -128,20 +128,20 @@
 
 
 {
-	"pseudo" : "Céline dion",
+	"nomArtiste" : "Céline dion",
 	"hashPassword" : "kugakazyvjjbhdscsjdyuqhvsxqsxsv",
 	"dateInscription" : "28/08/2014",
 	"musique" : [
 		{
-			"nomPLage" : "zbeub zbeub",
+			"nomPlage" : "zbeub zbeub",
 			"duree" : 437,
 			"nomAlbum" :"le grand poil",
-			"nbListenning": 233,
+			"nbEcoutes": 233,
 			"nbLike" : 78989,
-			"musicFileJSON" : "/home/json/fichier6.json",
-			"dateAdd" : "23/10/2011",
-			"pathCover" : "/home/cover/cover6.jpg",
-			"pathMP3" : "/home/music/musique6.mp3",
+			"dataJSON" : "/home/json/fichier6.json",
+			"dateAjout" : "23/10/2011",
+			"cheminPochette" : "/home/cover/cover6.jpg",
+			"cheminMP3" : "/home/music/musique6.mp3",
 			"commentaire":[
 				{
 					"user": "marc la frap",
@@ -160,20 +160,20 @@
 
 
 {
-	"pseudo" : "izzou",
+	"nomArtiste" : "izzou",
 	"hashPassword" : "jgfdserthjkpoiugszerghjç_yfdefghui",
 	"dateInscription" : "23/11/2012",
 	"musique" : [
 		{
-			"nomPLage" : "musique ancienne",
+			"nomPlage" : "musique ancienne",
 			"duree" : 6775,
 			"nomAlbum" :"La chancla y el banador",
-			"nbListenning": 2638,
+			"nbEcoutes": 2638,
 			"nbLike" : "1739",
-			"musicFileJSON" : "/home/json/fichier7.json",
-			"dateAdd" : "12/03/2017",
-			"pathCover" : "/home/cover/cover7.jpg",
-			"pathMP3" : "/home/music/musique7.mp3",
+			"dataJSON" : "/home/json/fichier7.json",
+			"dateAjout" : "12/03/2017",
+			"cheminPochette" : "/home/cover/cover7.jpg",
+			"cheminMP3" : "/home/music/musique7.mp3",
 			"commentaire":[
 				{
 					"user": "bertrand de la ponte de saint magilain",
@@ -193,22 +193,22 @@
 
 
 {
-	"pseudo" : "Vald",
+	"nomArtiste" : "Vald",
 	"hashPassword" : "zsdfbnkoiuygcszefghjuytf",
 	"dateInscription" : "19/11/2018"
 }
 {
-	"pseudo" : "Iron maidon",
+	"nomArtiste" : "Iron maidon",
 	"hashPassword" : "azsdfvbgtyhn,koooooooook,nhtfcxwq",
 	"dateInscription" : "19/07/2000"
 }
 {
-	"pseudo" : "CanLeBavard",
+	"nomArtiste" : "CanLeBavard",
 	"hashPassword" : "qsdfghiuytrsdfghjouyt",
 	"dateInscription" : "09/12/2008"
 }
 {
-	"pseudo" : "Alex&co",
+	"nomArtiste" : "Alex&co",
 	"hashPassword" : "zbraaalqmnaeqgdaizldabed",
 	"dateInscription" : "09/12/2000"
 }
