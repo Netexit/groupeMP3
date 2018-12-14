@@ -20,7 +20,7 @@ app.use(fileUpload());
 
 app.set('views', path.join(__dirname, 'views'));
 app.use(express.static(path.join(__dirname, 'public')));
-app.use(express.static('/root/testGroupeMP3/files/'));// a modifier en fct de testGroupeMP3
+//app.use(express.static('/root/testGroupeMP3/files/'));// a modifier en fct de testGroupeMP3
 app.set('view engine', 'jade');
 
 
