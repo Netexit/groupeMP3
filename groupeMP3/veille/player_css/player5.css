@@ -1,0 +1,544 @@
+
+div {
+  color: #e5e8e8 ;
+  font-size: 14px;
+}
+
+.audioplayer {
+  background-color: #212f3c;
+  display: flex;
+  z-index: 0;
+  width: 100vw;
+  height: 25vh;
+  position: fixed;
+  margin: 0;
+  bottom: 0px;
+  left: 0px;
+  flex-direction: row;
+  flex-wrap: wrap;
+}
+
+.audioplayer .visuel {
+
+  position: absolute;
+  background-color: #212f3c;
+  z-index: 2;
+  //width: 15%;
+  //width: 100px;
+  //height: 100%;
+  width: 25vh;
+  height: 25vh;
+
+}
+
+.audioplayer .infos {
+  background-color: #34495e;
+  order: 1;
+  z-index: 1;
+  display: flex;
+  padding-left: 25vh;
+  width: 75vw;
+  height: 15px;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: center;
+}
+
+.audioplayer .artiste {
+  margin: 5px;
+  font-weight: bold;
+}
+
+.audioplayer .titre {
+  margin: 5px;
+}
+
+.audioplayer .waveform {
+  background-color: #aeb6bf  ;
+  order: 3;
+  z-index: 1;
+  padding-left: 25vh;
+  height: calc(100% - 45px);
+  width: calc(100% - 25vh);
+}
+
+.audioplayer .controls {
+  background-color: #34495e ;
+  order: 5;
+  display: flex;
+  z-index: 1;
+  height: 30px;
+  flex-grow: 4;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+}
+
+.audioplayer .prev {
+  margin: 5px;
+  //border-radius: 2px;
+  height: 30px;
+  color: #34495e;
+  background-color: #e5e8e8;
+  border: none;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 4px 2px;
+  cursor: pointer;
+  -webkit-transition-duration: 0.2s; /* Safari */
+  transition-duration: 0.2s;
+}
+
+.audioplayer .prev:hover {
+  background-color: #34495e; /* Green */
+  color: #e5e8e8;
+}
+
+.audioplayer .play-pause.play {
+  margin: 5px;
+  //border-radius: 2px;
+  height: 30px;
+  color: #34495e;
+  background-color: #e5e8e8;
+  border: none;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 4px 2px;
+  cursor: pointer;
+  -webkit-transition-duration: 0.2s; /* Safari */
+  transition-duration: 0.2s;
+}
+
+.audioplayer .play-pause.play:hover {
+  background-color: #34495e; /* Green */
+  color: #e5e8e8;
+}
+
+.audioplayer .next {
+  margin: 5px;
+  //border-radius: 2px;
+  height: 30px;
+  color: #34495e;
+  background-color: #e5e8e8;
+  border: none;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 4px 2px;
+  cursor: pointer;
+  -webkit-transition-duration: 0.2s; /* Safari */
+  transition-duration: 0.2s;
+}
+
+.audioplayer .next:hover {
+  background-color: #34495e; /* Green */
+  color: #e5e8e8;
+}
+
+.audioplayer .volume {
+  margin: 5px;
+  //border-radius: 2px;
+  height: 30px;
+  color: #34495e;
+  background-color: #e5e8e8;
+  border: none;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 4px 2px;
+  cursor: pointer;
+  -webkit-transition-duration: 0.2s; /* Safari */
+  transition-duration: 0.2s;
+}
+
+.audioplayer .volume:hover {
+  background-color: #34495e; /* Green */
+  color: #e5e8e8;
+}
+
+.audioplayer .temps {
+  background-color: #34495e ;
+  order: 4;
+  display: flex;
+  z-index: 1;
+  padding-left: 25vh;
+  height: 30px;
+  flex-grow: 1;
+  align-items: center;
+}
+
+.audioplayer .en-cours {
+  margin: 5px;
+}
+
+.audioplayer .en-cours:after {
+ content: " /";
+}
+
+.audioplayer .total {
+  margin: 5px;
+}
+
+.audioplayer .statistiques {
+  background-color: #34495e ;
+  order: 6;
+  display: flex;
+  z-index: 1;
+  height: 30px;
+  flex-grow: 1;
+  justify-content: flex-end;
+  align-items: center;
+}
+
+.audioplayer .nb-lectures {
+  margin: 5px;
+}
+
+.audioplayer .nb-commentaires {
+  margin: 5px;
+  margin-right: 20px;
+}
+
+.audioplayer .social {
+  background-color: #34495e ;
+  width: calc(25vw - 25vh);
+  order: 2;
+  display: flex;
+  z-index: 1;
+  height: 15px;
+  justify-content: flex-end;
+  align-items: center;
+}
+
+.audioplayer .like {
+  height: 15px;
+  color: #34495e;
+  background-color: #e5e8e8;
+  border: none;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 12px;
+  margin: 4px 2px;
+  cursor: pointer;
+  -webkit-transition-duration: 0.4s; /* Safari */
+  transition-duration: 0.4s;
+}
+
+.audioplayer .like:hover {
+  background-color: #34495e; /* Green */
+  color: #e5e8e8;
+}
+
+.audioplayer .share {
+  height: 15px;
+  color: #34495e;
+  background-color: #e5e8e8;
+  border: none;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 12px;
+  margin: 3px 2px;
+  margin-right: 20px;
+  cursor: pointer;
+  -webkit-transition-duration: 0.4s; /* Safari */
+  transition-duration: 0.4s;
+}
+
+.audioplayer .share:hover {
+  background-color: #34495e;
+  color: #e5e8e8;
+}
+
+
+@media only screen and (max-height:180px) {
+
+  .audioplayer {
+    height: 45px;
+  }
+
+  .audioplayer .visuel {
+    width: 45px;
+    height: 45px;
+
+  }
+
+  .audioplayer .infos {
+    padding-left: 45px;
+  }
+
+  .audioplayer .social {
+    width: calc(25vw - 45px);
+  }
+
+  .audioplayer .temps {
+    padding-left: 45px;
+  }
+}
+
+
+@media only screen and (max-width:700px) {
+
+  div {
+    color: #e5e8e8 ;
+    font-size: 12px;
+  }
+
+  .audioplayer {
+    background-color: #212f3c;
+    display: flex;
+    z-index: 0;
+    width: 100vw;
+    height: 25vh;
+    position: fixed;
+    margin: 0;
+    bottom: 0px;
+    left: 0px;
+    flex-direction: row;
+    flex-wrap: wrap;
+  }
+
+  .audioplayer .visuel {
+    position: relative;
+    background-color: #212f3c;
+    order: 3;
+    z-index: 2;
+    width: calc(25vh - 45px);
+    height: calc(25vh - 45px);
+
+  }
+
+  .audioplayer .infos {
+    background-color: #34495e;
+    order: 1;
+    z-index: 1;
+    display: flex;
+    padding-left: 0px;
+    width: 75vw;
+    height: 15px;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: center;
+  }
+
+  .audioplayer .artiste {
+    margin: 5px;
+  }
+
+  .audioplayer .titre {
+    margin: 5px;
+  }
+
+  .audioplayer .waveform {
+    background-color: #aeb6bf  ;
+    order: 4;
+    z-index: 1;
+    padding-left: 0px;
+    height: calc(100% - 45px);
+    width: calc(100% - (25vh - 45px));
+  }
+
+  .audioplayer .controls {
+    background-color: #34495e ;
+    order: 6;
+    display: flex;
+    z-index: 1;
+    height: 30px;
+    flex-grow: 4;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .audioplayer .prev {
+    margin: 5px;
+    //border-radius: 2px;
+    height: 30px;
+    color: #34495e;
+    background-color: #e5e8e8;
+    border: none;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 2px;
+    cursor: pointer;
+    -webkit-transition-duration: 0.2s; /* Safari */
+    transition-duration: 0.2s;
+  }
+
+  .audioplayer .prev:hover {
+    background-color: #34495e; /* Green */
+    color: #e5e8e8;
+  }
+
+  .audioplayer .play-pause.play {
+    margin: 5px;
+    //border-radius: 2px;
+    height: 30px;
+    color: #34495e;
+    background-color: #e5e8e8;
+    border: none;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 2px;
+    cursor: pointer;
+    -webkit-transition-duration: 0.2s; /* Safari */
+    transition-duration: 0.2s;
+  }
+
+  .audioplayer .play-pause.play:hover {
+    background-color: #34495e; /* Green */
+    color: #e5e8e8;
+  }
+
+  .audioplayer .next {
+    margin: 5px;
+    //border-radius: 2px;
+    height: 30px;
+    color: #34495e;
+    background-color: #e5e8e8;
+    border: none;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 2px;
+    cursor: pointer;
+    -webkit-transition-duration: 0.2s; /* Safari */
+    transition-duration: 0.2s;
+  }
+
+  .audioplayer .next:hover {
+    background-color: #34495e; /* Green */
+    color: #e5e8e8;
+  }
+
+  .audioplayer .volume {
+    margin: 5px;
+    //border-radius: 2px;
+    height: 30px;
+    color: #34495e;
+    background-color: #e5e8e8;
+    border: none;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 2px;
+    cursor: pointer;
+    -webkit-transition-duration: 0.2s; /* Safari */
+    transition-duration: 0.2s;
+  }
+
+  .audioplayer .volume:hover {
+    background-color: #34495e; /* Green */
+    color: #e5e8e8;
+  }
+
+  .audioplayer .temps {
+    background-color: #34495e ;
+    order: 5;
+    display: flex;
+    z-index: 1;
+    padding-left: 0px;
+    height: 30px;
+    flex-grow: 1;
+    align-items: center;
+  }
+
+  .audioplayer .en-cours {
+    margin: 5px;
+  }
+
+  .audioplayer .en-cours:after {
+   content: " /";
+  }
+
+  .audioplayer .total {
+    margin: 5px;
+  }
+
+  .audioplayer .statistiques {
+    background-color: #34495e ;
+    order: 7;
+    display: flex;
+    z-index: 1;
+    height: 30px;
+    flex-grow: 1;
+    justify-content: flex-end;
+    align-items: center;
+  }
+
+  .audioplayer .nb-lectures {
+    margin: 5px;
+  }
+
+  .audioplayer .nb-commentaires {
+    margin: 5px;
+    margin-right: 20px;
+  }
+
+  .audioplayer .social {
+    background-color: #34495e ;
+    width: 25vw;
+    order: 2;
+    display: flex;
+    z-index: 1;
+    height: 15px;
+    justify-content: flex-end;
+    align-items: center;
+  }
+
+  .audioplayer .like {
+    //border-radius: 2px;
+    height: 15px;
+    color: #34495e;
+    background-color: #e5e8e8;
+    border: none;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 12px;
+    margin: 4px 2px;
+    cursor: pointer;
+    -webkit-transition-duration: 0.4s; /* Safari */
+    transition-duration: 0.4s;
+  }
+
+  .audioplayer .like:hover {
+    background-color: #34495e; /* Green */
+    color: #e5e8e8;
+  }
+
+  .audioplayer .share {
+    //border-radius: 2px;
+    height: 15px;
+    color: #34495e;
+    background-color: #e5e8e8;
+    border: none;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 12px;
+    margin: 3px 2px;
+    //margin-right: 20px;
+    cursor: pointer;
+    -webkit-transition-duration: 0.4s; /* Safari */
+    transition-duration: 0.4s;
+  }
+
+  .audioplayer .share:hover {
+    background-color: #34495e;
+    color: #e5e8e8;
+  }
+}

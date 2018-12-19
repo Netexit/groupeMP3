@@ -1,0 +1,247 @@
+
+div {
+  color: #e5e8e8 ;
+  font-weight: bold;
+}
+
+.audioplayer {
+  background-color: #212f3c;
+  display: flex;
+  z-index: 0;
+  width: 96%;
+  height: 200px;
+  position: fixed;
+  margin: 0 2%;
+  bottom: 0px;
+  flex-direction: row;
+  flex-wrap: wrap;
+}
+
+.audioplayer .visuel {
+  background-color: #212f3c;
+  z-index: 2;
+  width: 200px;
+  height: 100%;
+  position: absolute;
+}
+
+.audioplayer .infos {
+  background-color: #34495e;
+  order: 1;
+  z-index: 1;
+  display: flex;
+  padding-left: 200px;
+  width: calc(50% - 100px);
+  height: 15%;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.audioplayer .artiste {
+  margin: 5px;
+}
+
+.audioplayer .titre {
+  margin: 5px;
+}
+
+.audioplayer .waveform {
+  background-color: #aeb6bf  ;
+  order: 3;
+  z-index: 1;
+  margin-left: 200px;
+  height: 70%;
+  width: calc(100% - 200px);
+}
+
+.audioplayer .controls {
+  background-color: #34495e ;
+  order: 5;
+  display: flex;
+  z-index: 1;
+  height: 15%;
+  flex-grow: 4;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+}
+
+.audioplayer .prev {
+  margin: 5px;
+  border-radius: 2px;
+  color: #34495e;
+  background-color: #e5e8e8;
+  border: none;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 4px 2px;
+  cursor: pointer;
+  -webkit-transition-duration: 0.4s; /* Safari */
+  transition-duration: 0.4s;
+}
+
+.audioplayer .prev:hover {
+  background-color: #34495e; /* Green */
+  color: #e5e8e8;
+}
+
+
+
+.audioplayer .play-pause.play {
+  margin: 5px;
+  border-radius: 2px;
+  color: #34495e;
+  background-color: #e5e8e8;
+  border: none;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 4px 2px;
+  cursor: pointer;
+  -webkit-transition-duration: 0.4s; /* Safari */
+  transition-duration: 0.4s;
+}
+
+.audioplayer .play-pause.play:hover {
+  background-color: #34495e; /* Green */
+  color: #e5e8e8;
+}
+
+.audioplayer .next {
+  margin: 5px;
+  border-radius: 2px;
+  color: #34495e;
+  background-color: #e5e8e8;
+  border: none;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 4px 2px;
+  cursor: pointer;
+  -webkit-transition-duration: 0.4s; /* Safari */
+  transition-duration: 0.4s;
+}
+
+.audioplayer .next:hover {
+  background-color: #34495e; /* Green */
+  color: #e5e8e8;
+}
+
+.audioplayer .volume {
+  margin: 5px;
+  border-radius: 2px;
+  color: #34495e;
+  background-color: #e5e8e8;
+  border: none;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 4px 2px;
+  cursor: pointer;
+  -webkit-transition-duration: 0.4s; /* Safari */
+  transition-duration: 0.4s;
+}
+
+.audioplayer .volume:hover {
+  background-color: #34495e; /* Green */
+  color: #e5e8e8;
+}
+
+.audioplayer .temps {
+  background-color: #34495e ;
+  order: 4;
+  display: flex;
+  z-index: 1;
+  padding-left: 200px;
+  height: 15%;
+  flex-grow: 1;
+  align-items: center;
+}
+
+.audioplayer .en-cours {
+  margin: 5px;
+}
+
+.audioplayer .total {
+  margin: 5px;
+}
+
+.audioplayer .statistiques {
+  background-color: #34495e ;
+  order: 6;
+  display: flex;
+  z-index: 1;
+  height: 15%;
+  flex-grow: 1;
+  justify-content: flex-end;
+  align-items: center;
+}
+
+.audioplayer .nb-lectures {
+  margin: 5px;
+}
+
+.audioplayer .nb-commentaires {
+  margin: 5px;
+}
+
+.audioplayer .social {
+  background-color: #34495e ;
+  width: calc(50% - 300px);
+  order: 2;
+  display: flex;
+  padding-left: 200px;
+  z-index: 1;
+  height: 15%;
+  justify-content: flex-end;
+  align-items: center;
+}
+
+.audioplayer .like {
+  margin: 5px;
+  border-radius: 2px;
+  color: #34495e;
+  background-color: #e5e8e8;
+  border: none;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 4px 2px;
+  cursor: pointer;
+  -webkit-transition-duration: 0.4s; /* Safari */
+  transition-duration: 0.4s;
+}
+
+.audioplayer .like:hover {
+  background-color: #34495e; /* Green */
+  color: #e5e8e8;
+}
+
+.audioplayer .share {
+  margin: 5px;
+  border-radius: 2px;
+  color: #34495e;
+  background-color: #e5e8e8;
+  border: none;
+  padding: 10px
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 4px 2px;
+  cursor: pointer;
+  -webkit-transition-duration: 0.4s; /* Safari */
+  transition-duration: 0.4s;
+}
+
+.audioplayer .share:hover {
+  background-color: #34495e; /* Green */
+  color: #e5e8e8;
+}

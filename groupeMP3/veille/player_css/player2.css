@@ -1,0 +1,162 @@
+
+div {
+  color: yellow;
+  font-weight: bold;
+}
+
+.audioplayer {
+  background-color: #501e1b;
+  display: flex;
+  z-index: 0;
+  width: 96%;
+  height: 200px;
+  position: fixed;
+  margin: 0 2%;
+  bottom: 0px;
+  flex-direction: row;#conteneur {
+  width: 760px;
+  margin: 0 auto;
+}
+
+.audioplayer .visuel {
+  background-color: #642522;
+  z-index: 2;
+  width: 200px;
+  height: 100%;
+  position: absolute;
+}
+
+.audioplayer .infos {
+  background-color: #782c29;
+  order: 1;
+  z-index: 1;
+  display: flex;
+  padding-left: 200px;
+  width: calc(50% - 200px);#conteneur {
+  width: 760px;
+  margin: 0 auto;
+}
+
+.audioplayer .artiste {
+  background-color: #8c3330;
+  display: inline;
+  vertical-align: middle;
+}
+
+.audioplayer .titre {
+  background-color: #a03b36;
+  display: inline;
+  vertical-align: middle;
+}
+
+.audioplayer .waveform {
+  background-color: #b4423d;
+  order: 3;
+  //position: absolute;
+  z-index: 1;
+  margin-left: 200px;
+  //margin-top: 30px;
+  height: 70%;
+  width: calc(100% - 200px);
+}
+
+.audioplayer .controls {
+  background-color: #c84944;
+  order: 5;
+  display: flex;
+  z-index: 1;
+  //padding-left: 200px;
+  height: 15%;
+  flex-grow: 4;
+  justify-content: center;
+}
+
+.audioplayer .prev {
+  background-color: #fbefee;
+  display: inline;
+}
+
+.audioplayer .play-pause.play {
+  background-color: #fbefee;
+  display: inline;
+}
+
+.audioplayer .next {
+  background-color: #fbefee;
+  display: inline;
+}
+
+.audioplayer .volume {
+  background-color: #fbefee;
+  display: inline;#conteneur {
+  width: 760px;
+  margin: 0 auto;
+}
+
+.audioplayer .temps {
+  background-color: #e88f8b;
+  order: 4;
+  display: flex;
+  z-index: 1;
+  padding-left: 200px;
+  height: 15%;
+  flex-grow: 1;
+}
+
+.audioplayer .en-cours {
+  background-color: #eb9f9c;
+  display: inline;
+  vertical-align: middle;
+}
+
+.audioplayer .total {
+  background-color: #eeafac;
+  display: inline;
+  vertical-align: middle;
+}
+
+.audioplayer .statistiques {
+  background-color: #f1bfbd;
+  order: 6;
+  display: flex;
+  //padding-left: 200px;
+  z-index: 1;
+  height: 15%;
+  flex-grow: 1;
+  justify-content: flex-end;
+}
+
+.audioplayer .nb-lectures {
+  background-color: #f5cfcd;
+  display: inline;
+  vertical-align: middle;
+}
+
+.audioplayer .nb-commentaires {
+  background-color: #f8dfde;
+  display: inline;
+  vertical-align: middle;
+}
+
+.audioplayer .social {
+  background-color: #fbefee;
+  width: calc(50% - 200px);
+  order: 2;
+  display: flex;
+  padding-left: 200px;
+  z-index: 1;
+  height: 15%;
+  justify-content: flex-end;
+}
+
+.audioplayer .like {
+  background-color: #fbefee;
+  display: inline;
+  vertical-align: middle;
+}
+
+.audioplayer .share {
+  background-color: #fbefee;
+  display: inline;
+  vertical-align: middle;
+}

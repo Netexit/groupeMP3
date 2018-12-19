@@ -1,0 +1,421 @@
+@font-face {
+  font-family: 'fontPlayer';
+  src:  url('fonts/fontPlayer.eot?hihs2a');
+  src:  url('fonts/fontPlayer.eot?hihs2a#iefix') format('embedded-opentype'),
+    url('fonts/fontPlayer.ttf?hihs2a') format('truetype'),
+    url('fonts/fontPlayer.woff?hihs2a') format('woff'),
+    url('fonts/fontPlayer.svg?hihs2a#fontPlayer') format('svg');
+  font-weight: normal;
+  font-style: normal;
+}
+
+
+
+  div {
+    color: black ;
+    font-size: 5vw;
+  }
+
+  .audioplayer {
+    background-color: #212f3c;
+    display: flex;
+    z-index: 0;
+    width: 100vw;
+    height: 100vw;
+    position: fixed;
+    margin: 0;
+    top: 0px;
+    left: 0px;
+    flex-direction: row;
+    flex-wrap: wrap;
+  }
+
+  .audioplayer .visuel {
+    position: absolute;
+    background-color: #212f3c;
+    z-index: 1;
+    width: 100vw;
+    height: 100vw;
+  }
+
+  .audioplayer .pochette {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    padding: 0px;
+    z-index: 3;
+  }
+
+  .audioplayer .infos {
+    background-color: rgba(200, 200, 200, 0.5);
+    order: 1;
+    z-index: 2;
+    display: flex;
+    padding-left: 0px;
+    width: 100vw;
+    height: 20vw;
+    flex-direction: row;
+    justify-content: space-evenly;
+    align-items: center;
+  }
+
+  .audioplayer .artiste {
+    margin: 5px;
+  }
+
+  .audioplayer .titre {
+    margin: 5px;
+  }
+
+  .audioplayer .waveform {
+    background-color: rgba(200, 200, 200, 0.75);
+    order: 2;
+    z-index: 2;
+    padding-left: 0px;
+    height: 40vw;
+    width: 100vw;
+  }
+
+  .audioplayer .controls {
+    background-color: rgba(200, 200, 200, 0.5);
+    order: 3;
+    display: flex;
+    z-index: 1;
+    width: 100vw;
+    height: 20vw;
+    flex-grow: 0;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .audioplayer .prev {
+    width: 8.333vw;
+    height: 8.333vw;
+    color: white;
+    background-color: #ea6719;
+    border: none;
+    border-radius: 50%;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 0px;
+    margin:  1.333vw 0.667vw;
+    cursor: pointer;
+    -webkit-transition-duration: 0.2s;
+    transition-duration: 0.2s;
+    font-family: 'fontPlayer' !important;
+    speak: none;
+    font-style: normal;
+    font-weight: normal;
+    font-variant: normal;
+    text-transform: none;
+    line-height: 1;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  .audioplayer .prev:hover {
+    background-color: white;
+    color: #ea6719;
+  }
+
+  .audioplayer .prev:before {
+    position: relative;
+    display: inline-block;
+    margin-left: -1.667vw;
+    font-size: 5.333vw;
+    content: "\ea1f";
+   }
+
+  .audioplayer .play-pause.play {
+  width: 11.667vw;
+  height: 11.667vw;
+  color: white;
+  background-color: #ea6719;
+  border: none;
+  border-radius: 50%;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 0px;
+  margin:  1.333vw 0.667vw;
+  cursor: pointer;
+  -webkit-transition-duration: 0.2s;
+  transition-duration: 0.2s;
+  font-family: 'fontPlayer' !important;
+  speak: none;
+  font-style: normal;
+  font-weight: normal;
+  font-variant: normal;
+  text-transform: none;
+  line-height: 1;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  }
+
+  .audioplayer .play-pause.play:hover {
+    background-color: white;
+    color: #ea6719;
+  }
+
+  .audioplayer .play-pause.play:before {
+    position: relative;
+    display: inline-block;
+    margin-left: -0.333vw;
+    font-size: 8vw;
+    content: "\e901";
+   }
+
+  .audioplayer .next {
+    margin: 5px;
+    width: 8.333vw;
+    height: 8.333vw;
+    color: white;
+    background-color: #ea6719;
+    border: none;
+    border-radius: 50%;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 0px;
+    margin:  1.333vw 0.667vw;
+    cursor: pointer;
+    -webkit-transition-duration: 0.2s;
+    transition-duration: 0.2s;
+    font-family: 'fontPlayer' !important;
+    speak: none;
+    font-style: normal;
+    font-weight: normal;
+    font-variant: normal;
+    text-transform: none;
+    line-height: 1;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  .audioplayer .next:hover {
+    background-color: white;
+    color: #ea6719;
+  }
+
+  .audioplayer .next:before {
+    position: relative;
+    display: inline-block;
+    margin-left: -0.667vw;
+    font-size: 5.333vw;
+    content: "\ea20";
+   }
+
+  .audioplayer .volume {
+    content: "";
+    width: 8.333vw;
+    height: 8.333vw;
+    color: white;
+    background-color: #ea6719;
+    border: none;
+    border-radius: 50%;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 0px;
+    margin:  1.333vw 0.667vw 1.333vw 2vw;
+    cursor: pointer;
+    -webkit-transition-duration: 0.2s;
+    transition-duration: 0.2s;
+    font-family: 'fontPlayer' !important;
+    speak: none;
+    font-style: normal;
+    font-weight: normal;
+    font-variant: normal;
+    text-transform: none;
+    line-height: 1;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  .audioplayer .volume:hover {
+    background-color: white;
+    color: #ea6719;
+  }
+
+  .audioplayer .volume:before {
+    position: relative;
+    display: inline-block;
+    margin-left: -0.667vw;
+    font-size: 4.333vw;
+    content: "\ea26";
+   }
+
+  .audioplayer .temps {
+    background-color: rgba(200, 200, 200, 0.5);
+    order: 5;
+    display: flex;
+    z-index: 2;
+    padding-left: 0px;
+    height: 10vw;
+    width: 50vw;
+    flex-grow: 0;
+    align-items: center;
+    justify-content: flex-start;
+  }
+
+  .audioplayer .en-cours {
+    background-color: transparent;
+    color: black;
+    margin: 1.667vw;
+  }
+
+  .audioplayer .en-cours:after {
+    font-weight: bold;
+    color: black;
+    margin: 1.667vw;
+    content: "/";
+  }
+
+  .audioplayer .total {
+    background-color: transparent;
+    color: black;
+    margin: 1.667vw 0px;
+  }
+
+  .audioplayer .statistiques {
+    background-color: rgba(200, 200, 200, 0.5);
+    order: 4;
+    display: flex;
+    z-index: 2;
+    padding-left: 50vw;
+    width: 50vw;
+    height: 10vw;
+    flex-grow: 0;
+    justify-content: flex-start;
+    align-items: center;
+  }
+
+  .audioplayer .nb-lectures {
+    background-color: rgb(255, 255, 255);
+    margin: 1.667vw;
+  }
+
+  .audioplayer .nb-lectures:before {
+    font-family: 'fontPlayer' !important;
+    speak: none;
+    font-style: normal;
+    font-weight: normal;
+    font-variant: normal;
+    text-transform: none;
+    line-height: 1;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    position: relative;
+    display: inline-block;
+    content: "\ea1c";
+   }
+
+  .audioplayer .nb-commentaires {
+    background-color: rgb(255, 255, 255);
+    margin: 1.667vw;
+    margin-right: 6.667vw;
+  }
+
+  .audioplayer .nb-commentaires:before {
+    font-family: 'fontPlayer' !important;
+    speak: none;
+    font-style: normal;
+    font-weight: normal;
+    font-variant: normal;
+    text-transform: none;
+    line-height: 1;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    position: relative;
+    display: inline-block;
+    padding-right: 1.667vw;
+    content: "\e900";
+   }
+
+  .audioplayer .social {
+    background-color: rgba(200, 200, 200, 0.5);
+    order: 6;
+    display: flex;
+    z-index: 1;
+    height: 10vw;
+    width: 50vw;
+    justify-content: flex-start;
+    align-items: center;
+  }
+
+  .audioplayer .like {
+    height: 6vw;
+    color: #34495e;
+    background-color: #e5e8e8;
+    border: none;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 4vw;
+    margin: 1.333vw 0.667vw;
+    cursor: pointer;
+    -webkit-transition-duration: 0.4s; /* Safari */
+    transition-duration: 0.4s;
+  }
+
+  .audioplayer .like:hover {
+    background-color: #34495e; /* Green */
+    color: #e5e8e8;
+  }
+
+  .audioplayer .like:before {
+    font-family: 'fontPlayer' !important;
+    speak: none;
+    font-style: normal;
+    font-weight: normal;
+    font-variant: normal;
+    text-transform: none;
+    line-height: 1;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    position: relative;
+    display: inline-block;
+    padding-right: 1.667vw;
+    font-size: 4vw;
+    content: "\e9da";
+   }
+
+  .audioplayer .share {
+    height: 6vw;
+    color: #34495e;
+    background-color: #e5e8e8;
+    border: none;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 4vw;
+    margin: 1vw 0.667vw;
+    //margin-right: 6.667vw;
+    cursor: pointer;
+    -webkit-transition-duration: 0.4s; /* Safari */
+    transition-duration: 0.4s;
+  }
+
+  .audioplayer .share:hover {
+    background-color: #34495e;
+    color: #e5e8e8;
+  }
+
+  .audioplayer .share:before {
+    font-family: 'fontPlayer' !important;
+    speak: none;
+    font-style: normal;
+    font-weight: normal;
+    font-variant: normal;
+    text-transform: none;
+    line-height: 1;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    position: relative;
+    display: inline-block;
+    padding-right: 1.667vw;
+    font-size: 4vw;
+    content: "\ea82";
+   }
