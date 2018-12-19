@@ -18,23 +18,23 @@ app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(fileUpload());
 
+
 app.set('views', path.join(__dirname, 'views'));
 app.use(express.static(path.join(__dirname, 'public')));
-//app.use(express.static('/root/testGroupeMP3/files/'));// a modifier en fct de testGroupeMP3
+app.use(express.static('/root/testGroupeMP3/files/'));// a modifier en fct de testGroupeMP3 | permet d'afficher la pochette de l'album générée par upload
 app.set('view engine', 'jade');
 
-
+// API REST
 app.get('/plages', plagesRoute.findAll);
 app.get('/plages/:id', plagesRoute.findById);
 app.post('/plages', plagesRoute.addPlage);
 app.delete('/plages/:id', plagesRoute.deletePlage);
 app.put('/plages/:id', plagesRoute.updatePlage);
-app.get('/countPlages', plagesRoute.countPlages);
 
 app.use('/', indexRouter);
 app.use('/users', usersRouter);
-app.use('/affichage', affichageRoute);
-app.use('/upload', uploadRouter);
+app.use('/affichage', affichageRoute); // plateforme de test CRUD
+app.use('/upload', uploadRouter); // plateforme d'administration pour ajout par upload de mp3
 
 app.listen(3000);
 console.log('Listening on port 3000...');

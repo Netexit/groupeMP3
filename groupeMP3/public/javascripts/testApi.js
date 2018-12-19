@@ -1,3 +1,5 @@
+// fichier permettant le test de l'API REST
+
 var inputFile = document.getElementById("file");
 
 function findAll(){
@@ -50,8 +52,9 @@ function deletePlage(){
 }
 
 function updatePlage(){
-
-  var url = "http://localhost:3000/plages/"+document.getElementById("idPlage").value;
+  // On se sert du meme champ que pour update une plage
+  // Seul le nom de la plage est pris en compte pour une modification
+  var url = "http://localhost:3000/plages/"+document.getElementById("inputDeletePlage").value;
   var xhr = new XMLHttpRequest();
   var formData = new FormData();
   formData.append("nomPlage",document.getElementById("nomPlage").value);
