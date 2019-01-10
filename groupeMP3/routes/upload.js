@@ -17,10 +17,12 @@ router.post('/formulaireAjout', function(req, res, next){
   if(mp3!=null){
     //console.log(mp3.name.replace(/\s/g, ''));
     let name = tmp.tmpNameSync();
+    //enregistrement du fichier dans le dossier temporaire
     mp3.mv(appRoot+"/files"+name+".mp3", function(err){
       if(err){
         return res.status(500).send(err);
       }
+      //lecture des metadonnées
       mm.parseFile(appRoot+"/files"+name+".mp3", {native: true})
       .then( metadata => {
         console.log(util.inspect(metadata, {showHidden: false, depth: null}));

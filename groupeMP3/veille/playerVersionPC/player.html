@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<link rel="stylesheet" type="text/css" href="player.css">
+	<meta charset="UTF-8">
+
+</head>
+
+
+<body>
+
+	<div class='audioplayer'>
+		<div class='visuel'> <img class='pochette' src='pochette.jpg' /></div>
+		<div class='infos'>
+			<div class='artiste'>...</div>
+			<div class='titre'>...</div>
+		</div>
+		<div class='waveform'></div>
+		<div class='controls'>
+			<button class='prev'></button>
+			<button class='play-pause play' onclick="insererInfos('artiste', 'titre', '3:24', 1000000, 42, 52123)"></button>
+			<button class='next'></button>
+			<button class='volume' data-value='90'></button>
+		</div>
+		<div class='temps'>
+			<div class='en-cours'>0:00</div>
+			<div class='total'>0:00</div>
+		</div>
+		<div class='statistiques'>
+			<div class='nb-lectures'>0</div>
+			<div class='nb-commentaires'>0</div>
+		</div>
+		<div class='social'>
+			<button class='like'>0</button>
+			<button class='share'>Partager</button>
+		</div>
+	</div>
+
+
+	<script type="text/javascript" src="script.js"></script>
+</body>
+
+</html>

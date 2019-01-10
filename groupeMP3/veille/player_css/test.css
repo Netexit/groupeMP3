@@ -1,0 +1,199 @@
+@font-face {
+  font-family: 'fontPlayer';
+  src:  url('fonts/fontPlayer.eot?hihs2a');
+  src:  url('fonts/fontPlayer.eot?hihs2a#iefix') format('embedded-opentype'),
+    url('fonts/fontPlayer.ttf?hihs2a') format('truetype'),
+    url('fonts/fontPlayer.woff?hihs2a') format('woff'),
+    url('fonts/fontPlayer.svg?hihs2a#fontPlayer') format('svg');
+  font-weight: normal;
+  font-style: normal;
+}
+
+div {
+  //color: #e5e8e8 ;
+  color: black ;
+  font-size: 14px;
+}
+
+.audioplayer {
+  display: flex;
+  z-index: 0;
+  width: 100vw;
+  height: 100vh;
+  position: fixed;
+  margin: 0;
+  top: 0px;
+  left: 0px;
+  flex-direction: row;
+  flex-wrap: wrap;
+}
+
+.audioplayer .controls {
+  background-color: rgb(255, 255, 255);
+  order: 5;
+  display: flex;
+  z-index: 1;
+  height: 40px;
+  flex-grow: 4;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+
+.audioplayer .prev {
+  margin: 5px;
+  width: 25px;
+  height: 25px;
+  color: white;
+  background-color: #ea6719;
+  border: none;
+  border-radius: 50%;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 0px;
+  margin: 4px 2px;
+  cursor: pointer;
+  -webkit-transition-duration: 0.2s;
+  transition-duration: 0.2s;
+  font-family: 'fontPlayer' !important;
+  speak: none;
+  font-style: normal;
+  font-weight: normal;
+  font-variant: normal;
+  text-transform: none;
+  line-height: 1;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.audioplayer .prev:hover {
+  background-color: white;
+  color: #ea6719;
+}
+
+.audioplayer .prev:before {
+  position: relative;
+  display: inline-block;
+  margin-left: -3px;
+  font-size: 13px;
+  content: "\ea1f";
+ }
+
+.audioplayer .play-pause.play {
+margin: 5px;
+width: 35px;
+height: 35px;
+color: white;
+background-color: #ea6719;
+border: none;
+border-radius: 50%;
+text-align: center;
+text-decoration: none;
+display: inline-block;
+font-size: 0px;
+margin: 4px 2px;
+cursor: pointer;
+-webkit-transition-duration: 0.2s;
+transition-duration: 0.2s;
+font-family: 'fontPlayer' !important;
+speak: none;
+font-style: normal;
+font-weight: normal;
+font-variant: normal;
+text-transform: none;
+line-height: 1;
+-webkit-font-smoothing: antialiased;
+-moz-osx-font-smoothing: grayscale;
+}
+
+.audioplayer .play-pause.play:hover {
+  background-color: white;
+  color: #ea6719;
+}
+
+.audioplayer .play-pause.play:before {
+  font-size: 21px;
+  content: "\e901";
+ }
+
+.audioplayer .next {
+  margin: 5px;
+  width: 25px;
+  height: 25px;
+  color: white;
+  background-color: #ea6719;
+  border: none;
+  border-radius: 50%;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 0px;
+  margin: 4px 2px;
+  cursor: pointer;
+  -webkit-transition-duration: 0.2s;
+  transition-duration: 0.2s;
+  font-family: 'fontPlayer' !important;
+  speak: none;
+  font-style: normal;
+  font-weight: normal;
+  font-variant: normal;
+  text-transform: none;
+  line-height: 1;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.audioplayer .next:hover {
+  background-color: white;
+  color: #ea6719;
+}
+
+.audioplayer .next:before {
+  position: relative;
+  display: inline-block;
+  margin-left: -1px;
+  font-size: 13px;
+  content: "\ea20";
+ }
+
+.audioplayer .volume {
+  content: "";
+  width: 25px;
+  height: 25px;
+  color: white;
+  background-color: #ea6719;
+  border: none;
+  border-radius: 50%;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 0px;
+  margin: 4px 2px 4px 6px;
+  cursor: pointer;
+  -webkit-transition-duration: 0.2s;
+  transition-duration: 0.2s;
+  font-family: 'fontPlayer' !important;
+  speak: none;
+  font-style: normal;
+  font-weight: normal;
+  font-variant: normal;
+  text-transform: none;
+  line-height: 1;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.audioplayer .volume:hover {
+  background-color: white;
+  color: #ea6719;
+}
+
+.audioplayer .volume:before {
+  position: relative;
+  display: inline-block;
+  margin-left: -1px;
+  font-size: 11px;
+  content: "\ea26";
+ }
