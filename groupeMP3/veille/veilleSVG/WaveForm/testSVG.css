@@ -1,0 +1,101 @@
+/*PLAYER*/
+/*
+.audioplayer
+{
+	position: relative;
+	margin-left: 15%;
+	margin-right: 15%;
+	background: green;
+}
+
+.visuel
+{
+	position: absolute;
+	background: red;
+	width: 150px;
+	height: 150px;
+}
+
+.artiste
+{
+	position: absolute;
+	margin-left: 15%;
+}
+
+.titre
+{
+	position: absolute;
+	margin-left: 35%;
+}
+
+.nb-lectures
+{
+	position: absolute;
+	margin-left: 1%
+}
+
+*/
+
+
+/*SVG*/
+.waveform, .svg
+{
+	width: 100%;
+	height: 610px;
+	background: #F7F8EE;
+}
+
+.rect
+{
+	fill: #C89870;
+}
+
+.rect:hover
+{
+	fill: #a5d496;
+}
+
+.clicked
+{
+	fill: green;
+}
+
+.passed
+{
+	fill: #a5d496;
+}
+
+
+
+/*DIV*/
+/*
+.divClass
+{
+	width: 100%;
+	height: 610px;
+	background: #F7F8EE;
+	position: relative;
+}
+
+.div
+{
+	background: #C89870;
+	width: 10px;
+	height: attr(data-height);
+}
+
+.div:hover
+{
+	background: #a5d496;
+}
+
+.clickedDiv
+{
+	background: green;
+}
+
+.passedDiv
+{
+	background: #a5d496;
+}
+*/

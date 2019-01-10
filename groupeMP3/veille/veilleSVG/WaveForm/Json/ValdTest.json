@@ -1,0 +1,7 @@
+{
+	"sample_rate": 48000,
+	"samples_per_pixel": 36960,
+	"bits": 8,
+	"length": 400,
+	"data": [0,0,-10,10,-45,45,-2,2]
+}
