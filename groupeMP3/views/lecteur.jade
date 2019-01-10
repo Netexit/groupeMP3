@@ -1,0 +1,39 @@
+doctype html
+html
+  head
+    link(rel='stylesheet', type='text/css', href='/stylesheets/fonctionnelCSS.css')
+    link(rel='stylesheet', type='text/css', href='/stylesheets/player.css')
+    meta(charset='UTF-8')
+  body
+    .audioplayer
+     .visuel
+       img.pochette
+     .infos
+       .artiste
+       .titre
+     .waveform
+     .controls
+       button.prev
+       button.play-pause.pause
+       button.next
+       button.volume(data-value='90')
+     .temps
+       .en-cours
+       .total
+     .statistiques
+       .nb-lectures
+       .nb-commentaires
+     .social
+       button.like
+       button.share
+    script.
+      var musique = !{JSON.stringify(data)};
+    script(src='/javascripts/lecteur.js')
+    script(src='/javascripts/Player.js')
+    script(src='/javascripts/Sound.js')
+    script(src='/javascripts/SoundData.js')
+    script(src='/javascripts/SoundInfo.js')
+    script(src='/javascripts/SoundController.js')
+    script(src='/javascripts/SoundWaveform.js')
+    script(src='/javascripts/Main.js')
+    script(src='/soundmanagerFolder/script/soundmanager2.js')
