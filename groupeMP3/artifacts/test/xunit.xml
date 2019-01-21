@@ -1,0 +1,6 @@
+<testsuite name="Mocha Tests" tests="4" failures="0" errors="0" skipped="0" timestamp="Mon, 21 Jan 2019 11:22:08 GMT" time="0.201">
+<testcase classname="GET /plages" name="returns a list of plages" time="0.102"/>
+<testcase classname="GET /plages/5c3752884887a1783979eee2" name="returns a single plage" time="0.021"/>
+<testcase classname="PUT /plages/5c37514d4887a1783979eed2" name="update a plage" time="0.04"/>
+<testcase classname="DELETE /plages/5c37514d4887a1783979eed2" name="delete a plage" time="0.009"/>
+</testsuite>

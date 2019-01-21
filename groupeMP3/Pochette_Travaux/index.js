@@ -2,12 +2,15 @@
 function clean(tab){
 	var arrayTab = Array.from(tab)
 	for(i=3; i< arrayTab.length ; i= i+4){
-		tab[i] = 0;
+		//arrayTab[i] = 0;
+		arrayTab.splice(i,1);
+		console.log(i);
 	}
-	arrayTabFilter = tab.filter(function (el) {
-		return el != null;
-	});	
-	return arrayTabFilter;
+	//arrayTabFilter = tab.filter(function (el) {
+		//return el != null;
+	//});	
+	//return arrayTabFilter;
+	return arrayTab;
 }
 
 function getPixelsTab(array){
@@ -32,19 +35,20 @@ getPixels("img1.png", function(err, pixels) {
     console.log("Bad image path")
   }
   var pixels = pixels.data;
-  
-  //var pixels = JSON.parse(pixels);
-  //pixels = clean(pixels);
+  var pixels = Array.from(pixels)
   console.log(pixels.length);
-  //console.log(pixels);
-  var px = clean(pixels);
-  console.log(px);
-  console.log(px.length);
-  console.log(px);
+  majorColor(pixels);
+
 })
 
 function majorColor(array){
+	console.log("premier "+array.length);
+	console.log(array[ 0, array.length/2  ]);
 	if(array.length > 8){
-		majorColor();
+		return majorColor( array[ 0, array.length/2 -1 ] ) + majorColor( array[ (array.length/2 -1) , array.length-1 ]);
+		
+	}else{
+		return 2;
 	}
 }
+	
