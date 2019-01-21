@@ -1,0 +1,23 @@
+extends layout
+
+block content
+  table(border="1")
+    thead
+      tr
+        th Titre
+        th Artiste
+        th Listen
+    tbody
+      each val in data
+        tr
+          td= val.nomPlage
+          td= val.nomArtiste
+          td
+            button(id=val._id) Play
+  br
+  br
+  br
+  iframe(id="iframe")
+    p Votre navigateur ne supporte pas l'objet iframe.
+  
+  script(src='/javascripts/liste2.js')

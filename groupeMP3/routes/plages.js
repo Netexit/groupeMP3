@@ -54,11 +54,11 @@ exports.addPlage = function(req, res) {
   // console.log('Adding plage: ' + JSON.stringify(plage));
   var path=req.body.name;
   var name=path.substring(5);
-
+  console.log(req.files);
   if(fs.existsSync(appRoot+"/files"+path+".mp3")){
     mm.parseFile(appRoot+"/files"+path+".mp3", {native: true})
     .then( metadata => {
-      var content = fs.readFileSync(appRoot+"/files/tmp/vald.json"); // à modifier pour que le chemin soit dynamique. récupère le contenu du fichier JSON
+      var content = fs.readFileSync(appRoot+"/files"+path+".json"); // à modifier pour que le chemin soit dynamique. récupère le contenu du fichier JSON
       // création de l'objet à insérer dans la base
       var plage={
         "nomPlage" : req.body.nomPlage,
@@ -67,10 +67,11 @@ exports.addPlage = function(req, res) {
         "featArtiste" : req.body.featArtiste,
         "duree" : metadata.format.duration,
         "nbEcoutes" : 0,
+        "nbLikes" : 0,
         "dateAjout" : new Date(),
         "dataJSON" : JSON.parse(""+content).data,
-        "cheminMP3" : appRoot+"/files/mp3/"+name+".mp3",
-        "cheminPochette" : appRoot+"/files/art/"+name+".jpg"
+        "cheminMP3" : "mp3/"+name+".mp3",
+        "cheminPochette" : "art/"+name+".jpg"
       };
       database.collection('plage', function(err, collection) {
         collection.insertOne(plage, {safe:true}, function(err, result) {
@@ -80,6 +81,17 @@ exports.addPlage = function(req, res) {
             res.send("Success!");
           }
         });
+        fs.rename(appRoot+"/files"+path+".mp3",appRoot+"/files/mp3/"+name+".mp3",function(err){
+          if(err)
+            throw err;
+        });
+        if(req.files !== undefined){
+          fs.rename(appRoot+"/files"+path+".jpg",appRoot+"/files/art/"+name+".jpg",function(err){
+            if(err)
+            throw err;
+          });
+        }
+        fs.unlinkSync(appRoot+"/files"+path+".json");
       });
 
     })
@@ -123,6 +135,24 @@ exports.updatePlage = function(req, res){
         console.log('' + result + ' document(s) updated');
         res.send(plage);
       }
+    });
+  });
+}
+
+exports.listePlages = function(callback){
+  database.collection('plage', function(err, collection) {
+    collection.find().toArray(function(err, items) {
+      callback(items);
+    });
+  });
+}
+
+exports.lecteur = function(id, callback){
+  database.collection('plage', function(err, collection) {
+    var query = {"_id":new mongo.ObjectID(id)};
+    collection.find(query).toArray(function(err, item) {
+      console.log(item);
+      callback(item);
     });
   });
 }

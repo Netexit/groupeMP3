@@ -1,0 +1,21 @@
+extends layout
+
+block content
+  table(border="1")
+    thead
+      tr
+        th Titre
+        th Artiste
+        th Listen
+        th Action
+    tbody
+      each val in data
+        tr
+          td= val.nomPlage
+          td= val.nomArtiste
+          td
+            button(id=val._id) Play
+          td
+            button(onclick="addToPlaylist()") Ajouter à la playlist
+  
+  script(src='/javascripts/liste3.js')

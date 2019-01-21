@@ -25,9 +25,8 @@ router.post('/formulaireAjout', function(req, res, next){
       //lecture des metadonnées
       mm.parseFile(appRoot+"/files"+name+".mp3", {native: true})
       .then( metadata => {
-        console.log(util.inspect(metadata, {showHidden: false, depth: null}));
-        //shelljs.exec("bash "+appRoot+"/files/scripts/art.sh "+name);
-        shelljs.exec("bash "+appRoot+"/files/scripts/test.sh "+name);
+        //console.log(util.inspect(metadata, {showHidden: false, depth: null}));
+        shelljs.exec("bash "+appRoot+"/files/scripts/extraction.sh "+name);
         res.render('formulaireAjout',{artist:metadata.common.artist,title:metadata.common.title,name:name});
       })
       .catch( err => {
