@@ -3,8 +3,7 @@ function SoundData(jsonUrl) {
     var init = function(jsonUrl) {
         return clean(jsonUrl);
     };
-
-    //Ce sera coter serveur
+    
     var clean = function(tab) {
         for (var i = 0; i < tab.length; i = i + 2) {
             delete tab[i];
@@ -32,6 +31,7 @@ function SoundData(jsonUrl) {
     };
 
     var json = init(jsonUrl);
+
     this.getJson = function(){
         return json;
     };

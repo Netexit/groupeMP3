@@ -1,0 +1,19 @@
+extends layout
+
+block content
+  table(border="1")
+    thead
+      tr
+        th Titre
+        th Artiste
+        th Ajouter
+    tbody
+      each val in data
+        tr
+          td= val.nomPlage
+          td= val.nomArtiste
+          td
+            input(type="checkbox" id=val._id)
+  button(id="creerPlaylist" onclick="creation()") Créer
+  
+  script(src='/javascripts/ajoutPlaylist.js')

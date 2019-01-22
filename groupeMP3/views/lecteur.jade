@@ -27,7 +27,10 @@ html
        button.like
        button.share
     script.
-      var musique = !{JSON.stringify(data)};
+      const musique = !{JSON.stringify(data)};
+    script(src='/soundmanagerFolder/script/soundmanager2.js')
+    script(src='/javascripts/updateNbLike.js')
+    script(src='/javascripts/generatePlaylistDom.js')
     script(src='/javascripts/lecteur.js')
     script(src='/javascripts/Player.js')
     script(src='/javascripts/Sound.js')
@@ -36,4 +39,3 @@ html
     script(src='/javascripts/SoundController.js')
     script(src='/javascripts/SoundWaveform.js')
     script(src='/javascripts/Main.js')
-    script(src='/soundmanagerFolder/script/soundmanager2.js')

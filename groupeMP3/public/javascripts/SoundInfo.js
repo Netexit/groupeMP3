@@ -10,6 +10,14 @@ function SoundInfo(soundData) {
         var nbLikeElement = document.querySelector(".social .like");
         var pochetteElement = document.querySelector(".pochette");
 
+        delChildOfElement(artisteElement);
+        delChildOfElement(titreElement);
+        delChildOfElement(nbListenElement);
+        delChildOfElement(currentTimeElement);
+        delChildOfElement(soundDuraElement);
+        delChildOfElement(nbLikeElement);
+        delChildOfElement(pochetteElement);
+
 
         pochetteElement.src=pochette;
         var content;
@@ -30,19 +38,15 @@ function SoundInfo(soundData) {
         var duration = minute + " : " + seconde;
         content = document.createTextNode(duration);
         soundDuraElement.appendChild(content);
-        content = document.createTextNode(nbLike + " K");
+        content = document.createTextNode(nbLike);
         nbLikeElement.appendChild(content);
     };
 
-    //Remplacer avec les valeur retourner par la BDD dans le json
-    // var json = soundData.getJson();
-    // this.artiste = json.artiste;
-    // this.titre = json.titre;
-    // this.nbListen = json.nbListen;
-    // this.nbComment = json.nbComment;
-    // this.nbLike = json.nbLike;
-    // this.currentTime = json.currentTime;
-    // this.soundDura = json.soundDuration;
+    var delChildOfElement = function(element){
+      while (element.firstChild) {
+          element.removeChild(element.firstChild);
+      }
+    };
 
     //Valeur de test
     var artiste = soundData.nomArtiste;

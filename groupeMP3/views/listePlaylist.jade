@@ -1,0 +1,16 @@
+extends layout
+
+block content
+  table(border="1")
+    thead
+      tr
+        th Playlist
+        th Listen
+    tbody
+      each val in data
+        tr
+          td= val._id
+          td
+            button(id=val._id) Play
+  
+  script(src='/javascripts/listePlaylist.js')

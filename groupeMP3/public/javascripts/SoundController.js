@@ -19,16 +19,22 @@ function SoundController(sound){
         }
     };
 
-    var playPauseButton = function(element) {
-        if (Object.is(element.getAttribute("class"), "play-pause pause")) {
-            console.log("Pause");
-            element.classList.replace("pause", "play");
-            mySound.pause();
-        } else {
-            console.log("Play");
-            element.classList.replace("play", "pause");
-            mySound.play();
+    var playPauseButton = function() {
+      var mainPlayPauseButton = document.querySelector(".controls button[class~='play-pause']");
+      var currentSongId = mainPlayPauseButton.getAttribute("data-numButton");
+      var secondePlayPauseButton = document.querySelector("ol li button[data-numButton='"+currentSongId+"']");
+      //Recuperer l'attribut data-numButton 
+      if (!mySound.paused) {
+        if (element.classList.contains("pause")) {
+          element.classList.replace("pause", "play");
         }
+          mySound.pause();
+      }else{
+        if (element.classList.contains("play")) {
+          element.classList.replace("play", "pause");
+        }
+          mySound.play();
+      }
     };
 
     var nextButton = function() {
@@ -38,7 +44,7 @@ function SoundController(sound){
 
     var volumeButton = function() {
         var volumeControl = document.querySelector('.vol-control');
-        if (Object.is(volumeControl.getAttribute("class"), "vol-control hidden")) {
+        if (volumeControl.classList.contains("hidden")) {
             volumeControl.classList.replace("hidden", "notHidden");
             volumeControl.style.visibility = "visible";
             //volumeControl.style.display = "inline";
@@ -52,8 +58,6 @@ function SoundController(sound){
     };
 
     var volumeChanged = function(element) {
-        console.log("you change the volume value : " + element.value);
-        console.log(mySound);
         mySound.setVolume(element.value);
     };
 
@@ -63,7 +67,7 @@ function SoundController(sound){
         document.querySelector(".prev").addEventListener("click", function() {
             prevButton();
         });
-        document.querySelector(".play-pause.pause").addEventListener("click", function(e) {
+        document.querySelector("button[class~='play-pause']").addEventListener("click", function(e) {
             playPauseButton(e.target);
         });
         document.querySelector(".next").addEventListener("click", function() {
@@ -78,7 +82,6 @@ function SoundController(sound){
         var volumeControl = document.createElement('input');
         volumeControl.setAttribute('class', 'vol-control hidden');
         volumeControl.setAttribute('type', 'range');
-        volumeControl.setAttribute("orient", "vertical");
         volumeControl.setAttribute('value', '100');
         volumeControl.setAttribute('min', '0');
         volumeControl.setAttribute('max', '100');
@@ -94,6 +97,12 @@ function SoundController(sound){
     };
 
     var mySound = sound.getMySound();
+
+    this.updateSound = function(sound){
+      mySound=sound.getMySound();
+    }
+
+    this.playPauseListener = playPauseButton;
 
     addVolumeControl();
     addButtonListener();
