@@ -79,6 +79,6 @@ app.use('/liste2', liste2Router); // liste contenant une iframe du lecteur en fo
 app.use('/liste3', liste3Router); // liste requêtant les informations de la musique à écouter en ajax
 app.use('/ajoutPlaylist', ajoutPlaylistRouter);
 app.use('/listePlaylist', listePlaylistRouter);
-
-app.listen(3000);
+var server =app.listen(3000);
 console.log('Listening on port 3000...');
+module.exports = server;

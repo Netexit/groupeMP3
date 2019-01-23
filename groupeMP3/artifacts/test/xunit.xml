@@ -1,6 +1,7 @@
-<testsuite name="Mocha Tests" tests="4" failures="0" errors="0" skipped="0" timestamp="Mon, 21 Jan 2019 11:22:08 GMT" time="0.201">
-<testcase classname="GET /plages" name="returns a list of plages" time="0.102"/>
-<testcase classname="GET /plages/5c3752884887a1783979eee2" name="returns a single plage" time="0.021"/>
-<testcase classname="PUT /plages/5c37514d4887a1783979eed2" name="update a plage" time="0.04"/>
-<testcase classname="DELETE /plages/5c37514d4887a1783979eed2" name="delete a plage" time="0.009"/>
+<testsuite name="Mocha Tests" tests="5" failures="0" errors="0" skipped="0" timestamp="Wed, 23 Jan 2019 12:49:54 GMT" time="1.055">
+<testcase classname="GET /plages" name="returns a list of plages" time="0.883"/>
+<testcase classname="GET /plages/5c4845ed0617986f38d4c1ac" name="returns a single plage" time="0.062"/>
+<testcase classname="PUT /plages/5c4845ed0617986f38d4c1ac" name="update a plage" time="0.046"/>
+<testcase classname="POST /like/5c4845ed0617986f38d4c1ac" name="add a like to a plage" time="0.018"/>
+<testcase classname="POST /dislike/5c4845ed0617986f38d4c1ac" name="remove a like to a plage" time="0.015"/>
 </testsuite>
