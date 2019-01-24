@@ -1,3 +1,6 @@
+// Ce fichier se connecte à la base de données et permet la manipulation CRUD pour les plages.
+// Il permet aussi la manipulation de la base afin de répondre aux besoins des pages d'affichage
+
 // Imports
 var mongo = require('mongodb');
 var mm = require('music-metadata');
@@ -13,10 +16,12 @@ MongoClient.connect("mongodb://localhost:27017", { useNewUrlParser: true, auto_r
     console.error(err.message);
   }
   else{
+    // Nom de la base, équivalent à 'use mp3;'
     database=db.db("mp3");
   }
 });
 
+// Récupère toutes les plages. Equivalent à 'db.plage.find()'
 exports.findAll = function(req, res) {
   database.collection('plage', function(err, collection) {
     collection.find().toArray(function(err, items) {
@@ -25,6 +30,7 @@ exports.findAll = function(req, res) {
   });
 };
 
+// Récupère une plage, selon un id passé en paramètre
 exports.findById = function(req, res) {
   var id = req.params.id;
   console.log('Retrieving plage: ' + id);
@@ -38,18 +44,23 @@ exports.findById = function(req, res) {
   });
 };
 
+// Ajoute une plage dans la base de données.
+// Cette fonction récupère les informations passées par le formulaire de la page formulaireAjout.
+// Elle construit un objet plage avec toutes les informations nécessaires et lit les metadonnées du fichier mp3 ajouté par l'utilisateur afin de renseigner la durée dans la base.
 exports.addPlage = function(req, res) {
   // console.log('Adding plage: ' + JSON.stringify(plage));
   var path=req.body.name;
   var name=path.substring(5);
   var pochette=req.files.pochette;
   if(fs.existsSync(appRoot+"/files"+path+".mp3")){
+    // Lecture des métadonnées
     mm.parseFile(appRoot+"/files"+path+".mp3", {native: true})
     .then( metadata => {
       var content = fs.readFileSync(appRoot+"/files"+path+".json"); // à modifier pour que le chemin soit dynamique. récupère le contenu du fichier JSON
-      // création de l'objet à insérer dans la base
+      // Création du nom final du fichier en concaténant le nom de la plage, de l'artiste et de la durée, en retirant tous les espaces possibles
       var nomFichierFinal = req.body.nomPlage+req.body.nomArtiste+metadata.format.duration;
-      nomFichierFinal = nomFichierFinal.replace(/\s/g, '');
+      nomFichierFinal = nomFichierFinal.replace(/\s/g, ''); // retire tous les espaces de la chaine.
+      // création de l'objet à insérer dans la base
       var plage={
         "nomPlage" : req.body.nomPlage,
         "nomArtiste" : req.body.nomArtiste,
@@ -63,6 +74,7 @@ exports.addPlage = function(req, res) {
         "cheminMP3" : "mp3/"+nomFichierFinal+".mp3",
         "cheminPochette" : "art/"+nomFichierFinal+".jpg"
       };
+      // Ajout dans la bdd
       database.collection('plage', function(err, collection) {
         collection.insertOne(plage, {safe:true}, function(err, result) {
           if (err) {
@@ -71,6 +83,7 @@ exports.addPlage = function(req, res) {
             res.send("Success!");
           }
         });
+        // A l'issue de l'ajout, renomme les fichiers vers leur dossier respectif, et supprime le fichier json dont le contenu est stocké dans la bdd
         fs.rename(appRoot+"/files"+path+".mp3",appRoot+"/files/mp3/"+nomFichierFinal+".mp3",function(err){
           if(err)
             throw err;
@@ -87,6 +100,7 @@ exports.addPlage = function(req, res) {
               throw err;
           });
         }
+        // suppression du fichier json
         fs.unlinkSync(appRoot+"/files"+path+".json");
       });
 
@@ -101,6 +115,7 @@ exports.addPlage = function(req, res) {
 
 }
 
+// Suppression d'une plage selon un id passé en paramètre
 exports.deletePlage = function(req, res) {
   var id = req.params.id;
   console.log('Deleting plage: ' + id);
@@ -117,6 +132,7 @@ exports.deletePlage = function(req, res) {
   });
 }
 
+// Mise à jour d'une plage selon un id et un objet plage donné.
 exports.updatePlage = function(req, res){
   var id = req.params.id;
   var plage = req.body;
@@ -135,6 +151,7 @@ exports.updatePlage = function(req, res){
   });
 }
 
+// Cette fonction récupère toutes les plages de la base et exécute sa fonction callback récupérée en paramètre
 exports.listePlages = function(callback){
   database.collection('plage', function(err, collection) {
     collection.find().toArray(function(err, items) {
@@ -143,6 +160,7 @@ exports.listePlages = function(callback){
   });
 }
 
+// Cette fonction récupère toutes les playlists de la base et exécute sa fonction callback récupérée en paramètre
 exports.listePlaylist = function(callback){
   database.collection('playlist', function(err, collection){
     collection.find().toArray(function(err, items){
@@ -151,6 +169,7 @@ exports.listePlaylist = function(callback){
   });
 }
 
+// Récupère une musique selon un id et exécute sa fonction callback
 exports.lecteurMusique = function(id, callback){
   database.collection('plage', function(err, collection) {
     var query = {"_id":new mongo.ObjectID(id)};
@@ -160,6 +179,7 @@ exports.lecteurMusique = function(id, callback){
   });
 }
 
+// Récupère plusieurs musiques selon une liste d'ids et exécute sa fonction callback
 exports.lecteurPlaylist = function(id, callback){
   var tabIds=[];
   database.collection('playlist', function(err, collection) {
@@ -178,6 +198,7 @@ exports.lecteurPlaylist = function(id, callback){
   });
 }
 
+// Permet d'ajouter une liste de lecture dans la bdd
 exports.addPlaylist = function(req, res){
   database.collection('playlist', function(err, collection){
       collection.insertOne(req.body, {safe:true}, function(err, result) {
@@ -189,6 +210,7 @@ exports.addPlaylist = function(req, res){
   });
 }
 
+// Incremente le nombre de likes d'une plage données (id)
 exports.likeIncrement = function(req, res){
   database.collection('plage', function(err, collection){
     var query = {"_id":new mongo.ObjectID(req.params.id)};
@@ -201,6 +223,7 @@ exports.likeIncrement = function(req, res){
   });
 }
 
+// Décrémente le nombre de likes d'une plage données (id)
 exports.likeDecrement = function(req, res){
   database.collection('plage', function(err, collection){
     var query = {"_id":new mongo.ObjectID(req.params.id)};
@@ -213,6 +236,7 @@ exports.likeDecrement = function(req, res){
   });
 }
 
+// Incremente le nombre d'écoutes d'une plage données (id)
 exports.listenIncrement = function(req, res){
   database.collection('plage', function(err, collection){
     var query = {"_id":new mongo.ObjectID(req.params.id)};

@@ -1,14 +1,13 @@
 function Sound(url) {
 
 //-----------------------------Sound Generation---------------------------------
-    var generation = function(url) {
+    var generation = function(chemin) {
         var mySound;
-
         soundManager.setup({
             onready: function() {
                 mySound = soundManager.createSound({
                     id: 'aSound',
-                    url: url
+                    url: chemin
                 });
                 mySound.setVolume(100);
                 mySound.play({
@@ -25,8 +24,7 @@ function Sound(url) {
                         if (target != null) {
                             moveWaveForm(target);
                         }
-
-                    },
+                    }
                 });
             },
         });
@@ -46,6 +44,7 @@ function Sound(url) {
 
 
     var changeCurrentTime = function(target){
+      // console.log(mySound);
         var currentTimeElement = document.querySelector(".temps .en-cours");
         while (currentTimeElement.firstChild) {
             currentTimeElement.removeChild(currentTimeElement.firstChild);
@@ -64,6 +63,10 @@ function Sound(url) {
 
         var content = document.createTextNode(duration);
         currentTimeElement.appendChild(content);
+
+        if(position==mySound.duration){
+          reset();
+        }
     };
 
     var moveWaveForm = function(target) {

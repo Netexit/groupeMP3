@@ -1,0 +1,714 @@
+
+/* importation de la font SVG pour les differents icones */
+@font-face {
+font-family: 'fontPlayer';
+src:  url('fonts/fontPlayer.eot?hihs2a');
+src:  url('fonts/fontPlayer.eot?hihs2a#iefix') format('embedded-opentype'),
+  url('fonts/fontPlayer.ttf?hihs2a') format('truetype'),
+  url('fonts/fontPlayer.woff?hihs2a') format('woff'),
+  url('fonts/fontPlayer.svg?hihs2a#fontPlayer') format('svg');
+font-weight: normal;
+font-style: normal;
+}
+
+/* definition de la couleur et taille de font principale */
+div {
+  color: black ;
+  font-size: 15px;
+}
+
+/* ces lignes enlevent les contours lorsqu'un bouton est selectionné */
+.audioplayer *:focus {outline: none;}
+.audioplayer *::-moz-focus-inner {border:0;}
+
+/* visuel du player */
+.audioplayer {
+  position: fixed;
+  width: 100vw; /* 100% de la largeur de la fenetre */
+  height: 100vh; /* 100% de la hauteur de la fenetre */
+  top: 0px;
+  left: 0px;
+  z-index: 0;/* place l'element au dessus ou en dessous des autres */
+}
+
+/* visuel de la div pour la pochette */
+.audioplayer .visuel {
+  position: relative;
+  width: 100vh; /* la largeur de la pochette fait 100% de la hauteur de la fenetre afin qu'elle soit carre*/
+  height: 100vh;
+  margin-left: 50vw;
+  z-index: 1;
+  transform: translateX(-50%); /* permet de centrer l'image horizontalement */
+}
+
+/* visuel de la pochette */
+.audioplayer .pochette {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  padding: 0px;
+  z-index: 3;
+}
+
+/* visuel de la div infos contenant le nom de l'artiste et le titre de la musique */
+.audioplayer .infos {
+  position: absolute;
+  width: 100vw;
+  height: 50px; /* la hauteur des infos et des autres div en bas du player sont defini à 50px */
+  top: 0px;
+  left: 0px;
+  z-index: 1;
+  background-color: rgba(255, 255, 255, 0.5); /* couleur de fond blanche avec 50% de transparence */
+  display: flex; /* utilisation des flex-box afin de placer les elements textuels */
+  flex-direction: row;
+  justify-content: space-evenly;
+  align-items: center;
+}
+
+ /* visuel du nom de l'artiste */
+.audioplayer .artiste {
+  width: 50%;
+  margin: 5px;
+  font-weight: bold;
+  overflow: hidden; /* maintien le texte dans son element */
+  text-overflow: ellipsis; /* si le texte es trop long il est coupé et des points de suspencion sont ajouté */
+  white-space: nowrap; /* empeche le texte de revenir a la ligne */
+}
+
+ /* visuel du titre dela musique */
+.audioplayer .titre {
+  width: 50%;
+  margin: 5px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+/* visuel de la waveform */
+.audioplayer .waveform {
+  position: absolute;
+  width: 100vw;
+  height: calc(100vh - 200px); /* egale a la hauteur de la fenetre moins la hauteur cumulée des autres div (50 + 50 + 100)*/
+  top: 50px; /* egale a la hauteur des infos */
+  left: 0px;
+  z-index: 1;
+  background-color: rgba(255, 255, 255, 0.5);
+}
+
+/* visuel des controles du player */
+.audioplayer .controls {
+  position: absolute;
+  width: 250px; /* largeur des controles defini à 250px soit la largeur minimale du player */
+  height: 100px; /* hauteur defini à 100px */
+  bottom: 50px; /* egale a la hauteur des div inférieures */
+  left: 0px;
+  padding: 0px calc((100vw - 250px) / 2); /* ajoute un padding de chaque coté egale a la largeur de la fenetre moins la largeur des controles, divisé par 2 */
+  z-index: 1;
+  background-color: rgba(255, 255, 255, 0.5);
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+}
+
+/* definition du visuel et de la font SVG pour les boutons de controles */
+.audioplayer .controls button{
+  background-color: #ea6719;
+  color: white;
+  border: none;
+  border-radius: 50%;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 0px;
+  cursor: pointer;
+  -webkit-transition-duration: 0.2s; /* ajout d'une transition pour le hover */
+  transition-duration: 0.2s;
+  font-family: 'fontPlayer' !important; /* import de la font SVG */
+  speak: none;
+  font-style: normal;
+  font-weight: normal;
+  font-variant: normal;
+  text-transform: none;
+  line-height: 1;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* visuel des boutons lorsqu'on passe la souris par dessus */
+.audioplayer .controls button:hover {
+  background-color: white;
+  color: #ea6719;
+}
+
+/* definition des tailles et des marges des differents boutons de controle */
+.audioplayer .prev {
+  width: 37.5px;
+  height: 37.5px;
+  margin: 6px 3px;
+}
+
+.audioplayer .prev:before {
+  position: relative;
+  margin-left: -5px;
+  display: inline-block;
+  font-size: 24px;
+  content: "\ea1f"; /* correspond a l'icone voulu */
+}
+
+.audioplayer .play-pause.play {
+  width: 52.5px;
+  height: 52.5px;
+  margin: 6px 3px;
+}
+
+.audioplayer .play-pause.play:before {
+  position: relative;
+  margin-left: 0px;
+  display: inline-block;
+  font-size: 36px;
+  content: "\e901";
+}
+
+.audioplayer .play-pause.pause {
+  width: 52.5px;
+  height: 52.5px;
+  margin: 6px 3px;
+}
+
+.audioplayer .play-pause.pause:before {
+  position: relative;
+  margin-left: 0px;
+  display: inline-block;
+  font-size: 31.5px;
+  content: "\ea1d";
+}
+
+.audioplayer .next {
+  width: 37.5px;
+  height: 37.5px;
+  margin: 6px 3px;
+}
+
+.audioplayer .next:before {
+  position: relative;
+  margin-left: 0px;
+  display: inline-block;
+  font-size: 24px;
+  content: "\ea20";
+}
+
+.audioplayer .volume {
+  width: 37.5px;
+  height: 37.5px;
+  margin: 6px 3px 6px 9px;
+}
+
+.audioplayer .volume:before {
+  position: relative;
+  margin-left: 0px;
+  display: inline-block;
+  font-size: 19.5px;
+}
+/* affichage de differents icones de volume en fonction de la classe lié au niveau du volume */
+.audioplayer .volume:before {
+  content: "\ea26";
+}
+
+.audioplayer .volume.high:before {
+  content: "\ea26";
+}
+
+.audioplayer .volume.medium:before {
+  content: "\ea27";
+}
+
+.audioplayer .volume.low:before {
+  content: "\ea28";
+}
+
+.audioplayer .volume.mute:before {
+  content: "\ea2a";
+}
+
+/* placement de la barre de volume */
+.audioplayer .vol-control {
+  -webkit-appearance: none;
+  position: absolute;
+  width: 120px;
+  height: 10px;
+  left: calc(((100vw - 250px) / 2) + 220px); /* place la barre a la meme place que les controles mais décalé de 220px vers la droite */
+  padding: 3px 5px;
+  z-index: 4;
+  background-color: transparent;
+  background: transparent;
+  -webkit-transform-origin: 5px 5px; /* point de rotation */
+  -webkit-transform:rotate(-90deg); /* rotation afin de mettre la barre de volume verticale */
+}
+
+/* visuel du bouton de la barre de volume pour mozilla */
+.audioplayer .vol-control::-moz-range-thumb {
+  width: 20px;
+  height: 20px;
+  background-color: #ffffff;
+  border: 1px solid #888888;
+  border-radius: 50%;
+  cursor: pointer;
+}
+
+/* visuel de la barre de volume pour mozilla */
+.audioplayer .vol-control::-moz-range-track {
+  width: 100px;
+  height: 4px;
+  background-color: #ea6719;
+  cursor: pointer;
+  border-radius: 2px;
+  border: 1px solid #ea6719;
+}
+
+/* visuel du bouton de la barre de volume pour chrome */
+.audioplayer .vol-control::-webkit-slider-thumb {
+ -webkit-appearance: none;
+ width: 20px;
+ height: 20px;
+ margin-top: -10px;
+ background-color: #ffffff;
+ border: 1px solid #888888;
+ border-radius: 50%;
+ cursor: pointer;
+}
+
+/* visuel de la barre de volume pour chrome */
+.audioplayer .vol-control::-webkit-slider-runnable-track {
+ -webkit-appearance: none;
+ width: 100px;
+ height: 4px;
+ background-color: #ea6719;
+ border-radius: 2px;
+ border: 2px solid #ea6719;
+ cursor: pointer;
+}
+
+/* visuel de la div contenant le temps courant et le temps de la musique */
+.audioplayer .temps {
+  position: absolute;
+  width: 50vw; /* 50% de la largeur de la fenetre */
+  height: 25px;
+  bottom: 0px;
+  left: 0px;
+  padding-bottom: 25px;
+  z-index: 2;
+  background-color: rgb(255, 255, 255);
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+}
+
+/* visuel du temps courant */
+.audioplayer .en-cours {
+  margin: 5px;
+  padding-left: 5vw;
+  background-color: transparent;
+  color: #ea6719;
+}
+
+/* ajout d'un slash */
+.audioplayer .en-cours:after {
+  margin: 5px;
+  font-weight: bold;
+  color: black;
+  content: "/";
+}
+
+/* visuel du temps de la musique */
+.audioplayer .total {
+  margin: 5px 0px;
+  background-color: transparent;
+  color: black;
+}
+
+/* visuel de la div des statistiques contenant le nombre de lectures et le nombre de commentaires */
+.audioplayer .statistiques {
+  position: absolute;
+  width: 50vw;
+  height: 25px;
+  bottom: 25px;
+  right: 0px;
+  z-index: 2;
+  background-color: rgba(255, 255, 255, 1);
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+}
+
+/* visuel du nombre de lectures */
+.audioplayer .nb-lectures {
+  margin: 5px;
+  background-color: rgb(255, 255, 255);
+}
+
+/* ajout de l'icone devant le nombre de lectures */
+.audioplayer .nb-lectures:before {
+  position: relative;
+  font-family: 'fontPlayer' !important;
+  speak: none;
+  font-style: normal;
+  font-weight: normal;
+  font-variant: normal;
+  text-transform: none;
+  line-height: 1;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  display: inline-block;
+  content: "\ea1c";
+ }
+
+/* visuel du nombre de commentaires */
+.audioplayer .nb-commentaires {
+  margin: 5px;
+  background-color: rgb(255, 255, 255);
+}
+
+/* ajout de l'icone devant le nombre de commentaires */
+.audioplayer .nb-commentaires:before {
+  position: relative;
+  padding-right: 5px;
+  font-family: 'fontPlayer' !important;
+  speak: none;
+  font-style: normal;
+  font-weight: normal;
+  font-variant: normal;
+  text-transform: none;
+  line-height: 1;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  display: inline-block;
+  content: "\e900";
+ }
+
+/* visuel de la div social contenant les boutons like et share */
+.audioplayer .social {
+  position: absolute;
+  width: 50vw;
+  height: 25px;
+  bottom: 0px;
+  right: 0px;
+  z-index: 1;
+  background-color: rgba(255, 255, 255, 1);
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+}
+
+/* visuel du bouton like lorsque la musique a été likée */
+.audioplayer .like {
+  height: 20px;
+  margin: 4px 2px;
+  background-color: #ea6719;
+  color: rgb(255, 255, 255);
+  border-color: #ea6719;
+  border-width: thin;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 12px;
+  cursor: pointer;
+  -webkit-transition-duration: 0.4s;
+  transition-duration: 0.4s;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.audioplayer .like:before {
+  position: relative;
+  padding-right: 5px;
+  font-family: 'fontPlayer' !important;
+  speak: none;
+  font-style: normal;
+  font-weight: normal;
+  font-variant: normal;
+  text-transform: none;
+  line-height: 1;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  display: inline-block;
+  font-size: 12px;
+  content: "\e9da";
+ }
+
+ /* visuel du bouton like lorsque la musique n'a pas été likée */
+.audioplayer .like.unlike {
+ height: 20px;
+ margin: 4px 2px;
+ background-color: rgb(255, 255, 255);
+ color: black;
+ border-width: thin;
+ border-color: rgba(0, 0, 0, 0.25);
+ text-align: center;
+ text-decoration: none;
+ display: inline-block;
+ font-size: 12px;
+ cursor: pointer;
+ -webkit-transition-duration: 0.4s;
+ transition-duration: 0.4s;
+ overflow: hidden;
+ text-overflow: ellipsis;
+ white-space: nowrap;
+}
+
+.audioplayer .like.unlike:hover {
+ background-color: #ea6719;
+ color: rgb(255, 255, 255);
+ border-color: #ea6719;
+}
+
+.audioplayer .like.unlike:before {
+ position: relative;
+ padding-right: 5px;
+ font-family: 'fontPlayer' !important;
+ speak: none;
+ font-style: normal;
+ font-weight: normal;
+ font-variant: normal;
+ text-transform: none;
+ line-height: 1;
+ -webkit-font-smoothing: antialiased;
+ -moz-osx-font-smoothing: grayscale;
+ display: inline-block;
+ font-size: 12px;
+ content: "\e9da";
+}
+
+/* visuel du bouton share */
+.audioplayer .share {
+  height: 20px;
+  margin: 3px 2px;
+  color: black;
+  background-color: rgb(255, 255, 255);
+  border-width: thin;
+  border-color: rgba(0, 0, 0, 0.25);
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 12px;
+  cursor: pointer;
+  -webkit-transition-duration: 0.4s; /* Safari */
+  transition-duration: 0.4s;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.audioplayer .share:hover {
+  background-color: #ea6719;
+  color: rgb(255, 255, 255);
+  border-color: #ea6719;
+}
+
+.audioplayer .share:before {
+  position: relative;
+  padding-right: 5px;
+  font-family: 'fontPlayer' !important;
+  speak: none;
+  font-style: normal;
+  font-weight: normal;
+  font-variant: normal;
+  text-transform: none;
+  line-height: 1;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  display: inline-block;
+  font-size: 12px;
+  content: "\ea82";
+ }
+
+/* n'affiche pas le panneau share ni la playlist pour la version mobile */
+ .audioplayer .share-pannel {
+   display: none;
+ }
+
+ .audioplayer .playlist{
+   display: none;
+ }
+
+ /* changement de certaines caracteristiques des elements du player afin de definir un comportement en fonction de la taille de la fenetre */
+ @media screen and (max-width: 250px) and (max-height: 250px) {
+   .audioplayer {
+     width: 250px; /* largeur minimale du player mobile */
+     height: 250px; /* hauteur minimale du player mobile */
+   }
+
+   .audioplayer .visuel {
+     width: 250px;
+     height: 250px;
+     margin-left: 0px;
+     margin-top: 0px;
+     transform: translateX(0%);
+     transform: translateY(0%);
+   }
+
+   .audioplayer .infos {
+     width: 250px;
+     height: 50px;
+   }
+
+   .audioplayer .waveform {
+     width: 250px;
+     height: 50px; /* egale a la taille minimal de la waveform (250 - 100 - 50 - 50 = 50) */
+   }
+
+   .audioplayer .controls {
+     height: 100px;
+     padding: 0px 0px;
+   }
+
+   .audioplayer .vol-control {
+     position: absolute;
+     left: 220px;
+   }
+
+   .audioplayer .temps {
+     width: 125px; /* (250 / 2 = 125) */
+     height: 25px;
+   }
+
+   .audioplayer .en-cours {
+     padding-left: 12.5px; /* 5% de 250px */
+   }
+
+   .audioplayer .statistiques {
+     width: 125px; /* (250 / 2 = 125) */
+     height: 25px;
+   }
+
+   .audioplayer .social {
+     width: 125px; /* (250 / 2 = 125) */
+     height: 25px;
+   }
+ }
+
+/* application d'un style pour la pochette de fond lorsque la largeur de la fenetre deviens superieur a sa hauteur (passage du mode portrait à paysage) */
+ @media (orientation: landscape) and (min-width: 250px) and (min-height: 250px)
+ {
+   .audioplayer .visuel {
+     position: relative;
+     width: 100vw;
+     height: 100vw; /* hauteur egale a la largeur de la fenetre afin de garder la forme carre de la pochette mais elle va maintenant depasser en hauteur plutot qu'en largeur */
+     margin-left: 0px;
+     margin-top: 50vh;
+     transform: translateX(0%);
+     transform: translateY(-50%); /* centre l'image verticalement */
+   }
+ }
+
+
+ @media screen and (max-width: 250px) and (min-height: 250px) {
+   .audioplayer {
+     width: 250px; /* largeur minimale du playeur mobile */
+     height: 100vh;
+   }
+
+   .audioplayer .visuel {
+     position: relative;
+     width: 100vh;
+     height: 100vh;
+     margin-left: 125px;
+     transform: translateX(-50%);
+   }
+
+   .audioplayer .infos {
+     width: 250px;
+     height: 50px;
+   }
+
+   .audioplayer .waveform {
+     width: 250px;
+     height: calc(100vh - 200px); /* egale a la hauteur de la waveform par rapport a la hauteur de la fenetre (100vh - 100 - 50 - 50) */
+   }
+
+   .audioplayer .controls {
+     height: 100px;
+     padding: 0px 0px;
+   }
+
+   .audioplayer .vol-control {
+     position: absolute;
+     left:  220px;
+   }
+
+   .audioplayer .temps {
+     width: 125px;
+     height: 25px;
+   }
+
+   .audioplayer .en-cours {
+     padding-left: 12.5px; /* 5% de 250px */
+   }
+
+   .audioplayer .statistiques {
+     width: 125px;
+     height: 25px;
+   }
+
+   .audioplayer .social {
+     width: 125px;
+     height: 25px;
+   }
+ }
+
+
+
+ @media screen and (min-width: 250px) and (max-height: 250px) {
+
+   .audioplayer {
+     width: 100vw;
+     height: 250px; /* hauteur minimale du player mobile */
+   }
+
+   .audioplayer .visuel {
+     position: relative;
+     width: 100vw;
+     height: 100vw; /* hauteur de la pochette egale a la largeur de la fenetre afin de garder sa forme carre, elle va donc depasser en haut et en bas de la fenetre */
+     margin-left: 0px;
+     margin-top: 125px; /* (250 / 2 = 125) */
+     transform: translateX(0%);
+     transform: translateY(-50%); /* centre la pochette de fond verticalement */
+   }
+
+   .audioplayer .infos {
+     width: 100vw;
+     height: 50px;
+   }
+
+   .audioplayer .waveform {
+     width: 100vw;
+     height: 50px;
+   }
+
+   .audioplayer .controls {
+     height: 100px;
+     padding: 0px calc((100vw - 250px) / 2); /* ajoute un padding de chaque coté egale a la largeur de la fenetre moins la largeur des controles, divisé par 2 */
+   }
+
+   .audioplayer .vol-control {
+     position: absolute;
+     left: calc(((100vw - 250px) / 2) + 220px); /* place la barre a la meme place que les controles mais décalé de 220px vers la droite */
+   }
+
+   .audioplayer .temps {
+     width: 50vw;
+     height: 25px;
+   }
+
+   .audioplayer .statistiques {
+     width: 50vw;
+     height: 25px;
+   }
+
+   .audioplayer .social {
+     width: 50vw;
+     height: 25px;
+   }
+
+ }

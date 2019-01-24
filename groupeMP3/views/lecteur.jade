@@ -2,7 +2,6 @@ doctype html
 html
   head
     link(rel='stylesheet', type='text/css', href='/stylesheets/fonctionnelCSS.css')
-    link(rel='stylesheet', type='text/css', href='/stylesheets/player.css')
     meta(charset='UTF-8')
   body
     .audioplayer
@@ -25,7 +24,7 @@ html
        .nb-commentaires
      .social
        button.like
-       button.share
+       button.share Partager
     script.
       const musique = !{JSON.stringify(data)};
     script(src='/soundmanagerFolder/script/soundmanager2.js')

@@ -16,14 +16,17 @@ var logger = require('morgan');
 var cookieParser = require('cookie-parser');
 var fileUpload = require('express-fileupload');
 
+// Définit le dossier racine dans une variable globale appRoot
 global.appRoot = path.resolve(__dirname);
 
+// Déclare les différents packages utilisés
 app.use(logger('dev'));
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(fileUpload());
 
+// Création d'un cookie clientside si nécessaire
 app.use(function(req,res,next){
   // cookie existant clientside ?
   var cookieGroupeMP3 = req.cookies.groupeMP3;
@@ -45,11 +48,14 @@ app.use(function(req,res,next){
   next();
 });
 
+// Définit les dossiers où se trouvent respectivement : les vues et les ressources techniques (css, js, ...)
 app.set('views', path.join(__dirname, 'views'));
 app.use(express.static(path.join(__dirname, 'public'))); // dossier où le framework va chercher les ressources
 app.use(express.static(appRoot+'/files/'));// second dossier
 app.set('view engine', 'jade');
 
+
+// Les lignes qui suivent définissent toutes les pages accessibles selon le protocole HTTP renseigné, ainsi que les routes auxquelles elles sont référées.
 // API REST
 app.get('/plages', plagesRoute.findAll);
 app.get('/plages/:id', plagesRoute.findById);
@@ -68,7 +74,6 @@ app.post('/dislike/:id', plagesRoute.likeDecrement);
 app.post('/listen/:id', plagesRoute.listenIncrement);
 
 // PAGES
-
 app.use('/', indexRouter);
 app.use('/users', usersRouter);
 app.use('/affichage', affichageRoute); // plateforme de test CRUD
@@ -79,6 +84,7 @@ app.use('/liste2', liste2Router); // liste contenant une iframe du lecteur en fo
 app.use('/liste3', liste3Router); // liste requêtant les informations de la musique à écouter en ajax
 app.use('/ajoutPlaylist', ajoutPlaylistRouter);
 app.use('/listePlaylist', listePlaylistRouter);
-var server =app.listen(3000);
+
+// Lance le serveur en écoute sur le port 3000
+app.listen(3000);
 console.log('Listening on port 3000...');
-module.exports = server;

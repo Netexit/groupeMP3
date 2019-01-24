@@ -3,43 +3,52 @@ function SoundController(sound){
 //----------------------------Controller Function-------------------------------
 
     var prevButton = function() {
-        //console.log("position : " + parseInt(mySound.position/1000) + "s");
-        if (parseInt(mySound.position / 1000) > 5) {
-            var rectTab = document.querySelectorAll(".rect");
-            rectTab.forEach(function(element) {
-                if (element.getAttribute('data-numRect') == 0) {
-                    clickTab(element, true);
-                    //mySound.setPosition(0);
-                }
-            });
-
-        } else {
-            alert("<== Previous SOUND");
-            //A faire quand y aura des playlist
-        }
+        // //console.log("position : " + parseInt(mySound.position/1000) + "s");
+        // if (parseInt(mySound.position / 1000) > 5) {
+        //     var rectTab = document.querySelectorAll(".rect");
+        //     rectTab.forEach(function(element) {
+        //         if (element.getAttribute('data-numRect') == 0) {
+        //             clickTab(element, true);
+        //             //mySound.setPosition(0);
+        //         }
+        //     });
+        //
+        // } else {
+        //     alert("<== Previous SOUND");
+        //     //A faire quand y aura des playlist
+        // }
+        previous();
     };
+
 
     var playPauseButton = function() {
       var mainPlayPauseButton = document.querySelector(".controls button[class~='play-pause']");
       var currentSongId = mainPlayPauseButton.getAttribute("data-numButton");
       var secondePlayPauseButton = document.querySelector("ol li button[data-numButton='"+currentSongId+"']");
-      //Recuperer l'attribut data-numButton 
+      //Recuperer l'attribut data-numButton
       if (!mySound.paused) {
-        if (element.classList.contains("pause")) {
-          element.classList.replace("pause", "play");
+        mySound.pause();
+
+        if (mainPlayPauseButton.classList.contains("pause")) {
+          mainPlayPauseButton.classList.replace("pause", "play");
         }
-          mySound.pause();
+        if (secondePlayPauseButton.classList.contains("pause")) {
+          secondePlayPauseButton.classList.replace("pause", "play");
+        }
       }else{
-        if (element.classList.contains("play")) {
-          element.classList.replace("play", "pause");
+        mySound.play();
+
+        if (mainPlayPauseButton.classList.contains("play")) {
+          mainPlayPauseButton.classList.replace("play", "pause");
         }
-          mySound.play();
+        if (secondePlayPauseButton.classList.contains("play")) {
+          secondePlayPauseButton.classList.replace("play", "pause");
+        }
       }
     };
 
     var nextButton = function() {
-        console.log("You click on Next Button");
-        //A faire quand y aura des playlist
+        next();
     };
 
     var volumeButton = function() {
@@ -59,6 +68,19 @@ function SoundController(sound){
 
     var volumeChanged = function(element) {
         mySound.setVolume(element.value);
+        var volumeIcon = document.querySelector(".controls .volume");
+
+        if (mySound.volume == 0) {
+            volumeIcon.className = "volume mute";
+        }else if (mySound.volume < 30) {
+            volumeIcon.className = "volume low";
+        }else if (mySound.volume < 70) {
+            volumeIcon.className = "volume medium";
+        }else {
+            volumeIcon.className = "volume high";
+        }
+        // console.log(volumeIcon);
+
     };
 
 //--------------------------Add Event Listener----------------------------------
@@ -96,15 +118,22 @@ function SoundController(sound){
         document.querySelector('.controls').appendChild(volumeControl);
     };
 
+    var addDataNumButton = function(){
+      var mainPlayPauseButton = document.querySelector(".controls button[class~='play-pause']");
+      mainPlayPauseButton.setAttribute("data-numButton", 0);
+    };
+
     var mySound = sound.getMySound();
 
-    this.updateSound = function(sound){
+    this.updateSound = function(song){
+      sound=song;
       mySound=sound.getMySound();
     }
 
     this.playPauseListener = playPauseButton;
 
     addVolumeControl();
+    addDataNumButton();
     addButtonListener();
 
 }

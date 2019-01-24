@@ -29,7 +29,6 @@ function SoundWaveform(sound, soundData){
 
             var newTabs = json;
             if (nb == 0) {
-                console.log("nb = 0");
                 var arrayVide = [];
                 return arrayVide;
             }
@@ -68,8 +67,8 @@ function SoundWaveform(sound, soundData){
                 }
                 array[j] = somme/nbSomme;
             }
+
             newTabs = array;
-            //console.log(json);
             //Peut etre simplifier
             json = newTabs;
         // }
@@ -401,7 +400,7 @@ function SoundWaveform(sound, soundData){
                 clearTimeout(monTimeOut);
                 hoverTab(e.currentTarget);
                 //Quelque souci au niveau des time out A revoir
-                monTimeOut = setTimeout(function(){ waveFormHoverOut(); }, 5000);
+                monTimeOut = setTimeout(function(){ waveFormHoverOut(); }, 4000);
             });
 
             rect.addEventListener("click", function(e) {
@@ -437,10 +436,7 @@ function SoundWaveform(sound, soundData){
     var clearPlayer = function(){
         var svg = document.querySelector(".svg");
         svg.parentNode.removeChild(svg);
-        // var rectTab = document.querySelectorAll(".rect");
-        // rectTab.forEach(function(element) {
-        //     element.parentNode.removeChild(element);
-        // });
+
         mySound.destruct();
     };
 
@@ -455,48 +451,42 @@ function SoundWaveform(sound, soundData){
             var rectId = parseInt(element.getAttribute('data-numRect'));
 
             if (rectId <= targetId) {
-                if (!rectTab[rectId].classList.contains("clicked")) {
-                    rectTab[rectId].classList.add("clicked");
-                }
-                if (rectTab[rectId].classList.contains("passed")) {
-                    rectTab[rectId].classList.remove("passed");
-                }
+                addClassClicked(rectTab[rectId]);
+                removeClassPassed(rectTab[rectId]);
             } else {
-                if (rectTab[rectId].classList.contains("clicked")) {
-                    rectTab[rectId].classList.remove("clicked");
-                }
-                if (rectTab[rectId].classList.contains("passed")) {
-                    rectTab[rectId].classList.remove("passed");
-                }
-                if (rectTab[rectId].classList.contains("passedBeforePlayed")) {
-                    rectTab[rectId].classList.remove("passedBeforePlayed");
-                }
+                removeClass(rectTab[rectId]);
+
             }
         });
     };
 
     var removeClassPassed = function(target){
-        if (target.classList.contains("passedBeforePlayed")) {
-            target.classList.remove("passedBeforePlayed");
-        }
         if (target.classList.contains("passed")) {
             target.classList.remove("passed");
         }
     };
 
-    var removeClass = function(target){
-        removeClassPassed(target);
+    var removeClassPassedBeforePlayed = function(target){
+        if (target.classList.contains("passedBeforePlayed")) {
+            target.classList.remove("passedBeforePlayed");
+        }
+    };
+
+    var removeClassClicked = function(target){
         if (target.classList.contains("clicked")) {
             target.classList.remove("clicked");
         }
     };
 
+    var removeClass = function(target){
+        removeClassPassed(target);
+        removeClassPassedBeforePlayed(target);
+        removeClassClicked(target);
+    };
+
     var addClassClicked = function(target){
         if (!target.classList.contains("clicked")) {
             target.classList.add("clicked");
-        }
-        if (target.classList.contains("passed")) {
-            target.classList.remove("passed");
         }
     };
 
@@ -513,13 +503,18 @@ function SoundWaveform(sound, soundData){
         if (targetId < lastRectClickedId) {
             for (i = lastRectClickedId; i > targetId ; i--) {
                 time = 2*tmp; // 2ms fois tmp si je retire le 3 eme element je doit lui mettre un timeout de 6ms afin que la difference entre chaque element soit de de 2ms
-                setTimeout(function(rectTab){ removeClass(rectTab); }, time, rectTab[i]);
+                setTimeout(function(rectTab){
+                    removeClass(rectTab);
+                }, time, rectTab[i]);
                 tmp++;
             }
         }else {
             for (i = lastRectClickedId; i < targetId ; i++) {
                 time = 2*tmp;
-                setTimeout(function(rectTab){ addClassClicked(rectTab); }, time, rectTab[i]);
+                setTimeout(function(rectTab){
+                    addClassClicked(rectTab);
+                    removeClassPassed(rectTab);
+                }, time, rectTab[i]);
 
                 tmp++;
             }
@@ -612,34 +607,43 @@ function SoundWaveform(sound, soundData){
         var rectTab = document.querySelectorAll(".rect");
 
         var currentTimeElement = document.querySelector(".temps .en-cours");
-        if (currentTimeElement.classList.contains("timeUsed")) {
-            currentTimeElement.classList.remove("timeUsed");
-        }
 
         // recupere le tempsdonner par le Hover afin de determiner le dernier element hovered
         var res = currentTimeElement.textContent.split(":");
-        var timeHover = ( res[0]*60 + parseInt(res[1]) )*1000;
+        var timeHover = ( parseInt(res[0]*60) + parseInt(res[1]) )*1000;
         var lastRectHover =  rectTab[Math.round(timeHover / (mySound.duration / rectTab.length))];
-
+        if (currentTimeElement.classList.contains("timeUsed")) {
+            currentTimeElement.classList.remove("timeUsed");
+        }
         var lastRectClicked = rectTab[Math.round(mySound.position / (mySound.duration / rectTab.length))];
         sound.changeCurrentTime(lastRectClicked);
 
-        var lastRectHoverId = lastRectHover.getAttribute('data-numRect');
-        var lastRectClickedId = lastRectClicked.getAttribute('data-numRect');
+        var lastRectHoverId = parseInt(lastRectHover.getAttribute('data-numRect'));
+        var lastRectClickedId = parseInt(lastRectClicked.getAttribute('data-numRect'));
         var i;
         var tmp = 1;
         var time;
 
         if (lastRectHoverId <= lastRectClickedId) {
             for (i = lastRectHoverId; i <= lastRectClickedId ; i++) {
-                time = 2*tmp; // 2ms fois tmp si je retire le 3 eme element je doit lui mettre un timeout de 6ms afin que la difference entre chaque element soit de de 2ms
-                monTimeOut2[tmp-1] = setTimeout(function(rectTab){ removeClassPassed(rectTab); }, time, rectTab[i]);
+                // time = 2*tmp; // 2ms fois tmp si je retire le 3 eme element je doit lui mettre un timeout de 6ms afin que la difference entre chaque element soit de de 2ms
+                // monTimeOut2[tmp-1] = setTimeout(function(rectTab){
+                //     removeClassPassed(rectTab);
+                // }, time, rectTab[i]);
+                // tmp++;
+                time = 2*tmp;
+                monTimeOut2[tmp-1] = setTimeout(function(rectTab){
+                    removeClassPassedBeforePlayed(rectTab);
+                }, time, rectTab[i]);
+
                 tmp++;
             }
         }else {
             for (i = lastRectHoverId; i > lastRectClickedId ; i--) {
                 time = 2*tmp;
-                monTimeOut2[tmp-1] = setTimeout(function(rectTab){ removeClassPassed(rectTab); }, time, rectTab[i]);
+                monTimeOut2[tmp-1] = setTimeout(function(rectTab){
+                    removeClassPassed(rectTab);
+                }, time, rectTab[i]);
 
                 tmp++;
             }
@@ -655,7 +659,8 @@ function SoundWaveform(sound, soundData){
 
     this.killSound = clearPlayer;
 
-    this.updateSound = function(sound, soundData){
+    this.updateSound = function(song, soundData){
+      sound=song;
       mySound = sound.getMySound();
       json = soundData.getJson();
       dataHighSize = [];

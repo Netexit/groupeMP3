@@ -4,8 +4,6 @@ function Player(musique) {
         soundWaveform.drawWaveForm();
     };
 
-    console.log(musique);
-
     //jsonURL sera remplcer par l'id de la musique pour la requete en BDD
 
     var soundData = new SoundData(musique.dataJSON);//données JSON
@@ -26,6 +24,8 @@ function Player(musique) {
       soundData = new SoundData(song.dataJSON);
 
       sound = new Sound(song.cheminMP3);
+
+      console.log(sound.getMySound());
 
       soundInfo = new SoundInfo(song);
 
